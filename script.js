@@ -144,6 +144,59 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
+    // ===== Testimonials Carousel =====
+    var track = document.getElementById('testimonialTrack');
+    var prevBtn = document.getElementById('prevBtn');
+    var nextBtn = document.getElementById('nextBtn');
+    var dotsContainer = document.getElementById('carouselDots');
+    if (track && prevBtn && nextBtn && dotsContainer) {
+        var cards = track.querySelectorAll('.testimonial-card');
+        var currentSlide = 0;
+        var totalSlides = cards.length;
+        var autoplayInterval;
+
+        // Create dots
+        for (var d = 0; d < totalSlides; d++) {
+            var dot = document.createElement('button');
+            dot.className = 'carousel-dot' + (d === 0 ? ' active' : '');
+            dot.setAttribute('aria-label', 'Go to testimonial ' + (d + 1));
+            dot.dataset.index = d;
+            dot.addEventListener('click', function() {
+                goToSlide(parseInt(this.dataset.index));
+            });
+            dotsContainer.appendChild(dot);
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            track.style.transform = 'translateX(-' + (currentSlide * 100) + '%)';
+            var dots = dotsContainer.querySelectorAll('.carousel-dot');
+            dots.forEach(function(dt, i) {
+                dt.classList.toggle('active', i === currentSlide);
+            });
+        }
+
+        prevBtn.addEventListener('click', function() {
+            goToSlide(currentSlide === 0 ? totalSlides - 1 : currentSlide - 1);
+            resetAutoplay();
+        });
+        nextBtn.addEventListener('click', function() {
+            goToSlide(currentSlide === totalSlides - 1 ? 0 : currentSlide + 1);
+            resetAutoplay();
+        });
+
+        function startAutoplay() {
+            autoplayInterval = setInterval(function() {
+                goToSlide(currentSlide === totalSlides - 1 ? 0 : currentSlide + 1);
+            }, 5000);
+        }
+        function resetAutoplay() {
+            clearInterval(autoplayInterval);
+            startAutoplay();
+        }
+        startAutoplay();
+    }
+
     // ===== Floating Particles =====
     var particlesContainer = document.getElementById('particles');
     if (particlesContainer) {
