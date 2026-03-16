@@ -420,29 +420,89 @@
     <section class="section" id="testimonials">
         <div class="container">
             <h2 class="section-title">What People Say</h2>
-            <div class="testimonials-slider">
-                <button class="slider-arrow slider-prev" id="prevBtn" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
-                <div class="slider-viewport" id="sliderViewport">
-                    <div class="slider-track" id="sliderTrack">
-                        <div class="testi-card"><div class="testi-quote"><i class="fas fa-quote-left"></i></div><p>"He demonstrated a genuine passion for delivering value and consistently raising the bar. He solved complex business problems leveraging RPA, AWS technologies, saving our Finance teams thousands of hours. I recommend him without reservation."</p><div class="testi-footer"><strong>Ricardo Alvarado, PMP</strong><span>Business Program Manager, Microsoft</span></div></div>
-                        <div class="testi-card"><div class="testi-quote"><i class="fas fa-quote-left"></i></div><p>"I can wholeheartedly recommend Vipul as not only incredibly talented Engineer, but also as amazing Human being. His drive for innovation is paralleled only by broad knowledge of technology he works with."</p><div class="testi-footer"><strong>Daniel Dubravec</strong><span>Visualization Engineer, Takeda</span></div></div>
-                        <div class="testi-card"><div class="testi-quote"><i class="fas fa-quote-left"></i></div><p>"Vipul has demonstrated unwavering dedication, passion, and creativity. We genuinely consider Vipul an extended member of our team. His technical knowledge and thought-leadership continue to enrich our Community."</p><div class="testi-footer"><strong>Charlotte Kennett</strong><span>Director of Product Marketing, SS&amp;C Blue Prism</span></div></div>
-                        <div class="testi-card"><div class="testi-quote"><i class="fas fa-quote-left"></i></div><p>"Vipul is a highly skilled architect specialized in Intelligent Automation. He is customer/business focused, a good communicator and a driven person who thrives in innovative environments."</p><div class="testi-footer"><strong>Alexander Hübel</strong><span>COO, DigitalTolk</span></div></div>
-                        <div class="testi-card"><div class="testi-quote"><i class="fas fa-quote-left"></i></div><p>"Every now and then, you come across a person who makes you think 'how do they do it?!'. His unending energy and enthusiasm is infectious, his creativity is unstoppable and his relentless focus on quality is second to none."</p><div class="testi-footer"><strong>Michael Shillingford</strong><span>Sr. Community Strategy Manager, SS&amp;C Blue Prism</span></div></div>
-                        <div class="testi-card"><div class="testi-quote"><i class="fas fa-quote-left"></i></div><p>"Vipul is not your typical techie, he packs a great combination of functional and technical flavours. He can be the driving force that inspires everyone else to do better."</p><div class="testi-footer"><strong>Ravi Joshi</strong><span>Director | Head of Engineering and AI, Citi</span></div></div>
-                        <div class="testi-card"><div class="testi-quote"><i class="fas fa-quote-left"></i></div><p>"Vipul brought a tremendous amount of enthusiasm to the automation team. His drive and technical depth translated into delivery of flagship projects. He will be an asset to any team he joins."</p><div class="testi-footer"><strong>Duncan Berry</strong><span>Head of Change, QBE Insurance</span></div></div>
-                        <div class="testi-card"><div class="testi-quote"><i class="fas fa-quote-left"></i></div><p>"Vipul is one of the most positive and skilled people I had the pleasure to work with. He has a unique ability to find solutions to problems and helps you reach your full potential. The key person every winning team should have."</p><div class="testi-footer"><strong>Ermir Hasanbelliu</strong><span>Program Manager, Amazon</span></div></div>
-                        <div class="testi-card"><div class="testi-quote"><i class="fas fa-quote-left"></i></div><p>"Vipul is a passionate technologist, open to sharing his time and knowledge. He adapted his conversations to different audiences while keeping the same powerful message. He gives honest answers without asking anything in return."</p><div class="testi-footer"><strong>Eric Nguyen</strong><span>Industry Advisor (AI x Cyber Security), University of Canberra</span></div></div>
-                        <div class="testi-card"><div class="testi-quote"><i class="fas fa-quote-left"></i></div><p>"Vipul has an abundance of enthusiasm and passion. His exceptional work ethic and technical understanding saw him drive forward important initiatives. His work continues to have an impact months after leaving."</p><div class="testi-footer"><strong>Markus Hall</strong><span>AI Strategy Lead, Fidelity International</span></div></div>
-                        <div class="testi-card"><div class="testi-quote"><i class="fas fa-quote-left"></i></div><p>"Vipul is an exceptional developer. He brings varied breadths and depths of technical know-how while constantly innovating. He is agile and always looking to re-invent and challenge existing norms."</p><div class="testi-footer"><strong>Ayush Tripathi</strong><span>Sr. IA Solution Architect, Fidelity International</span></div></div>
-                        <div class="testi-card"><div class="testi-quote"><i class="fas fa-quote-left"></i></div><p>"I could see Vipul as a trusted partner in Solution design. His low code automation tool understanding is beyond match. The energy and passion he brings while working on any problem is truly inspiring."</p><div class="testi-footer"><strong>Manish Dewan</strong><span>Senior Vice President, NatWest Group</span></div></div>
-                        <div class="testi-card"><div class="testi-quote"><i class="fas fa-quote-left"></i></div><p>"His Appian skills are unparalleled in the industry. His ability to quickly understand the problem statement and execute its solution to perfection makes him an asset. A problem assigned to Vipul is already half solved."</p><div class="testi-footer"><strong>Aditya Jairath</strong><span>Sr. Manager, Fidelity International</span></div></div>
-                        <div class="testi-card"><div class="testi-quote"><i class="fas fa-quote-left"></i></div><p>"I rarely come across real talents who stand out like Vipul. His ability to handle multiple automation scopes made a dramatic increase in productivity. No matter how tense the environment, Vipul made sure everyone left with a smile."</p><div class="testi-footer"><strong>Vinay Gangwar</strong><span>Program Manager, Rakuten Symphony</span></div></div>
-                        <div class="testi-card"><div class="testi-quote"><i class="fas fa-quote-left"></i></div><p>"Vipul showed excellent technical knowledge, and could rapidly understand business requirements and develop high quality automation solutions."</p><div class="testi-footer"><strong>David Hunter</strong><span>Head of AI and Automation, Sweco</span></div></div>
+            <div class="carousel-wrapper">
+                <button class="carousel-btn carousel-prev" id="prevBtn" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+                <div class="carousel-stage" id="carouselStage">
+                    <div class="carousel-card active" data-index="0">
+                        <div class="carousel-quote-icon"><i class="fas fa-quote-left"></i></div>
+                        <blockquote>"He demonstrated a genuine passion for delivering value and consistently raising the bar. He solved complex business problems leveraging RPA, AWS technologies, saving our Finance teams thousands of hours. I recommend him without reservation."</blockquote>
+                        <div class="carousel-author"><strong>Ricardo Alvarado, PMP</strong><span>Business Program Manager, Microsoft</span></div>
+                    </div>
+                    <div class="carousel-card" data-index="1">
+                        <div class="carousel-quote-icon"><i class="fas fa-quote-left"></i></div>
+                        <blockquote>"I can wholeheartedly recommend Vipul as not only incredibly talented Engineer, but also as amazing Human being. His drive for innovation is paralleled only by broad knowledge of technology he works with."</blockquote>
+                        <div class="carousel-author"><strong>Daniel Dubravec</strong><span>Visualization Engineer, Takeda</span></div>
+                    </div>
+                    <div class="carousel-card" data-index="2">
+                        <div class="carousel-quote-icon"><i class="fas fa-quote-left"></i></div>
+                        <blockquote>"Vipul has demonstrated unwavering dedication, passion, and creativity. We genuinely consider Vipul an extended member of our team. His technical knowledge and thought-leadership continue to enrich our Community."</blockquote>
+                        <div class="carousel-author"><strong>Charlotte Kennett</strong><span>Director of Product Marketing, SS&amp;C Blue Prism</span></div>
+                    </div>
+                    <div class="carousel-card" data-index="3">
+                        <div class="carousel-quote-icon"><i class="fas fa-quote-left"></i></div>
+                        <blockquote>"Vipul is a highly skilled architect specialized in Intelligent Automation. He is customer/business focused, a good communicator and a driven person who thrives in innovative environments."</blockquote>
+                        <div class="carousel-author"><strong>Alexander H&#252;bel</strong><span>COO, DigitalTolk</span></div>
+                    </div>
+                    <div class="carousel-card" data-index="4">
+                        <div class="carousel-quote-icon"><i class="fas fa-quote-left"></i></div>
+                        <blockquote>"Every now and then, you come across a person who makes you think 'how do they do it?!'. His unending energy and enthusiasm is infectious, his creativity is unstoppable and his relentless focus on quality is second to none."</blockquote>
+                        <div class="carousel-author"><strong>Michael Shillingford</strong><span>Sr. Community Strategy Manager, SS&amp;C Blue Prism</span></div>
+                    </div>
+                    <div class="carousel-card" data-index="5">
+                        <div class="carousel-quote-icon"><i class="fas fa-quote-left"></i></div>
+                        <blockquote>"Vipul is not your typical techie, he packs a great combination of functional and technical flavours. He can be the driving force that inspires everyone else to do better."</blockquote>
+                        <div class="carousel-author"><strong>Ravi Joshi</strong><span>Director | Head of Engineering and AI, Citi</span></div>
+                    </div>
+                    <div class="carousel-card" data-index="6">
+                        <div class="carousel-quote-icon"><i class="fas fa-quote-left"></i></div>
+                        <blockquote>"Vipul brought a tremendous amount of enthusiasm to the automation team. His drive and technical depth translated into delivery of flagship projects. He will be an asset to any team he joins."</blockquote>
+                        <div class="carousel-author"><strong>Duncan Berry</strong><span>Head of Change, QBE Insurance</span></div>
+                    </div>
+                    <div class="carousel-card" data-index="7">
+                        <div class="carousel-quote-icon"><i class="fas fa-quote-left"></i></div>
+                        <blockquote>"Vipul is one of the most positive and skilled people I had the pleasure to work with. He has a unique ability to find solutions to problems and helps you reach your full potential. The key person every winning team should have."</blockquote>
+                        <div class="carousel-author"><strong>Ermir Hasanbelliu</strong><span>Program Manager, Amazon</span></div>
+                    </div>
+                    <div class="carousel-card" data-index="8">
+                        <div class="carousel-quote-icon"><i class="fas fa-quote-left"></i></div>
+                        <blockquote>"Vipul is a passionate technologist, open to sharing his time and knowledge. He adapted his conversations to different audiences while keeping the same powerful message. He gives honest answers without asking anything in return."</blockquote>
+                        <div class="carousel-author"><strong>Eric Nguyen</strong><span>Industry Advisor (AI x Cyber Security), University of Canberra</span></div>
+                    </div>
+                    <div class="carousel-card" data-index="9">
+                        <div class="carousel-quote-icon"><i class="fas fa-quote-left"></i></div>
+                        <blockquote>"Vipul has an abundance of enthusiasm and passion. His exceptional work ethic and technical understanding saw him drive forward important initiatives. His work continues to have an impact months after leaving."</blockquote>
+                        <div class="carousel-author"><strong>Markus Hall</strong><span>AI Strategy Lead, Fidelity International</span></div>
+                    </div>
+                    <div class="carousel-card" data-index="10">
+                        <div class="carousel-quote-icon"><i class="fas fa-quote-left"></i></div>
+                        <blockquote>"Vipul is an exceptional developer. He brings varied breadths and depths of technical know-how while constantly innovating. He is agile and always looking to re-invent and challenge existing norms."</blockquote>
+                        <div class="carousel-author"><strong>Ayush Tripathi</strong><span>Sr. IA Solution Architect, Fidelity International</span></div>
+                    </div>
+                    <div class="carousel-card" data-index="11">
+                        <div class="carousel-quote-icon"><i class="fas fa-quote-left"></i></div>
+                        <blockquote>"I could see Vipul as a trusted partner in Solution design. His low code automation tool understanding is beyond match. The energy and passion he brings while working on any problem is truly inspiring."</blockquote>
+                        <div class="carousel-author"><strong>Manish Dewan</strong><span>Senior Vice President, NatWest Group</span></div>
+                    </div>
+                    <div class="carousel-card" data-index="12">
+                        <div class="carousel-quote-icon"><i class="fas fa-quote-left"></i></div>
+                        <blockquote>"His Appian skills are unparalleled in the industry. His ability to quickly understand the problem statement and execute its solution to perfection makes him an asset. A problem assigned to Vipul is already half solved."</blockquote>
+                        <div class="carousel-author"><strong>Aditya Jairath</strong><span>Sr. Manager, Fidelity International</span></div>
+                    </div>
+                    <div class="carousel-card" data-index="13">
+                        <div class="carousel-quote-icon"><i class="fas fa-quote-left"></i></div>
+                        <blockquote>"I rarely come across real talents who stand out like Vipul. His ability to handle multiple automation scopes made a dramatic increase in productivity. No matter how tense the environment, Vipul made sure everyone left with a smile."</blockquote>
+                        <div class="carousel-author"><strong>Vinay Gangwar</strong><span>Program Manager, Rakuten Symphony</span></div>
+                    </div>
+                    <div class="carousel-card" data-index="14">
+                        <div class="carousel-quote-icon"><i class="fas fa-quote-left"></i></div>
+                        <blockquote>"Vipul showed excellent technical knowledge, and could rapidly understand business requirements and develop high quality automation solutions."</blockquote>
+                        <div class="carousel-author"><strong>David Hunter</strong><span>Head of AI and Automation, Sweco</span></div>
                     </div>
                 </div>
-                <button class="slider-arrow slider-next" id="nextBtn" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+                <button class="carousel-btn carousel-next" id="nextBtn" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
             </div>
+            <div class="carousel-dots" id="carouselDots"></div>
+            <div class="carousel-counter" id="carouselCounter">1 / 15</div>
         </div>
     </section>
 

@@ -144,50 +144,56 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // ===== Testimonials Horizontal Slider =====
-    var sliderTrack = document.getElementById('sliderTrack');
+    // ===== Testimonials Carousel =====
+    var cards = document.querySelectorAll('.carousel-card');
+    var dotsContainer = document.getElementById('carouselDots');
+    var counter = document.getElementById('carouselCounter');
     var prevBtn = document.getElementById('prevBtn');
     var nextBtn = document.getElementById('nextBtn');
-    if (sliderTrack && prevBtn && nextBtn) {
-        var testiCards = sliderTrack.querySelectorAll('.testi-card');
-        var currentPos = 0;
-        var cardsVisible = 3;
-        var totalCards = testiCards.length;
-        var maxPos = totalCards - cardsVisible;
-        var autoSlide;
+    var currentIdx = 0;
+    var totalSlides = cards.length;
+    var autoTimer;
 
-        function getCardsVisible() {
-            if (window.innerWidth <= 768) return 1;
-            if (window.innerWidth <= 1024) return 2;
-            return 3;
+    if (cards.length && dotsContainer) {
+        // Create dots
+        for (var d = 0; d < totalSlides; d++) {
+            var dot = document.createElement('button');
+            dot.className = 'carousel-dot' + (d === 0 ? ' active' : '');
+            dot.setAttribute('aria-label', 'Go to slide ' + (d + 1));
+            dot.setAttribute('data-idx', d);
+            dot.addEventListener('click', function() { goTo(parseInt(this.getAttribute('data-idx'))); resetAuto(); });
+            dotsContainer.appendChild(dot);
         }
 
-        function updateSlider() {
-            cardsVisible = getCardsVisible();
-            maxPos = Math.max(0, totalCards - cardsVisible);
-            if (currentPos > maxPos) currentPos = maxPos;
-            var gap = 20;
-            sliderTrack.style.transform = 'translateX(-' + (currentPos * (100 / cardsVisible + (gap * 100 / sliderTrack.parentElement.offsetWidth))) + '%)';
+        function goTo(idx) {
+            var prev = currentIdx;
+            currentIdx = (idx + totalSlides) % totalSlides;
+            cards[prev].classList.remove('active');
+            cards[prev].classList.add('exit-left');
+            setTimeout(function() { cards[prev].classList.remove('exit-left'); }, 500);
+            cards[currentIdx].classList.add('active');
+            // Update dots
+            var dots = dotsContainer.querySelectorAll('.carousel-dot');
+            dots[prev].classList.remove('active');
+            dots[currentIdx].classList.add('active');
+            if (counter) counter.textContent = (currentIdx + 1) + ' / ' + totalSlides;
         }
 
-        function slideNext() {
-            currentPos = currentPos >= maxPos ? 0 : currentPos + 1;
-            updateSlider();
-        }
-        function slidePrev() {
-            currentPos = currentPos <= 0 ? maxPos : currentPos - 1;
-            updateSlider();
-        }
+        function slideNext() { goTo(currentIdx + 1); }
+        function slidePrev() { goTo(currentIdx - 1); }
 
-        nextBtn.addEventListener('click', function() { slideNext(); resetAuto(); });
-        prevBtn.addEventListener('click', function() { slidePrev(); resetAuto(); });
+        if (nextBtn) nextBtn.addEventListener('click', function() { slideNext(); resetAuto(); });
+        if (prevBtn) prevBtn.addEventListener('click', function() { slidePrev(); resetAuto(); });
 
-        function startAuto() { autoSlide = setInterval(slideNext, 4000); }
-        function resetAuto() { clearInterval(autoSlide); startAuto(); }
+        function startAuto() { autoTimer = setInterval(slideNext, 5000); }
+        function resetAuto() { clearInterval(autoTimer); startAuto(); }
         startAuto();
 
-        window.addEventListener('resize', updateSlider);
-        updateSlider();
+        // Keyboard support
+        document.getElementById('testimonials').addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowRight') { slideNext(); resetAuto(); }
+            if (e.key === 'ArrowLeft') { slidePrev(); resetAuto(); }
+        });
     }
 
     // ===== Floating Particles =====
