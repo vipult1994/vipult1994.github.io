@@ -22,17 +22,22 @@
             <ul class="nav-menu" id="navMenu">
                 <li><a href="#about">About</a></li>
                 <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
                 <li><a href="#awards">Awards</a></li>
                 <li><a href="#speaking">Speaking</a></li>
                 <li><a href="#education">Education</a></li>
                 <li><a href="#certifications">Certifications</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
+                <i class="fas fa-moon" id="themeIcon"></i>
+            </button>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section class="hero" id="hero">
+        <div class="hero-parallax" id="heroParallax"></div>
         <div class="hero-particles" id="particles"></div>
         <div class="hero-content">
             <div class="hero-badge">Available for Collaboration</div>
@@ -43,7 +48,7 @@
                 <span class="greeting">Hello, I'm</span>
                 <span class="name">Vipul Tiwari</span>
             </h1>
-            <p class="hero-subtitle">Sr. Solutions Architect — Agentic AI | FinOps COE</p>
+            <p class="hero-subtitle" id="typingText"></p>
             <p class="hero-company"><i class="fab fa-aws"></i> Amazon AWS, Bratislava, Slovakia</p>
             <div class="hero-tags">
                 <span class="tag">Agentic AI</span>
@@ -77,19 +82,19 @@
                 </div>
                 <div class="about-stats">
                     <div class="stat-card">
-                        <div class="stat-number">8+</div>
+                        <div class="stat-number" data-target="8" data-suffix="+">0</div>
                         <div class="stat-label">Years Experience</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-number">20+</div>
+                        <div class="stat-number" data-target="20" data-suffix="+">0</div>
                         <div class="stat-label">Team Members Led</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-number">99K+</div>
+                        <div class="stat-number" data-target="99" data-suffix="K+">0</div>
                         <div class="stat-label">Hours Saved</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-number">4x</div>
+                        <div class="stat-number" data-target="4" data-suffix="x">0</div>
                         <div class="stat-label">Blue Prism MVP</div>
                     </div>
                 </div>
@@ -316,8 +321,77 @@
         </div>
     </section>
 
+    <!-- Tech Stack Section -->
+    <section class="section" id="skills">
+        <div class="container">
+            <h2 class="section-title">Tech Stack</h2>
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <div class="skill-icon"><i class="fab fa-aws"></i></div>
+                    <span class="skill-name">AWS</span>
+                    <div class="skill-bar"><div class="skill-fill" data-level="95"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon"><i class="fas fa-robot"></i></div>
+                    <span class="skill-name">UiPath</span>
+                    <div class="skill-bar"><div class="skill-fill" data-level="95"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon"><i class="fas fa-cogs"></i></div>
+                    <span class="skill-name">Blue Prism</span>
+                    <div class="skill-bar"><div class="skill-fill" data-level="95"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon"><i class="fab fa-python"></i></div>
+                    <span class="skill-name">Python</span>
+                    <div class="skill-bar"><div class="skill-fill" data-level="85"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon"><i class="fas fa-brain"></i></div>
+                    <span class="skill-name">Agentic AI</span>
+                    <div class="skill-bar"><div class="skill-fill" data-level="90"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon"><i class="fas fa-chart-bar"></i></div>
+                    <span class="skill-name">Tableau</span>
+                    <div class="skill-bar"><div class="skill-fill" data-level="80"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon"><i class="fas fa-cubes"></i></div>
+                    <span class="skill-name">Appian</span>
+                    <div class="skill-bar"><div class="skill-fill" data-level="85"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon"><i class="fas fa-database"></i></div>
+                    <span class="skill-name">Alteryx</span>
+                    <div class="skill-bar"><div class="skill-fill" data-level="80"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon"><i class="fas fa-cloud"></i></div>
+                    <span class="skill-name">AWS Bedrock</span>
+                    <div class="skill-bar"><div class="skill-fill" data-level="85"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon"><i class="fas fa-server"></i></div>
+                    <span class="skill-name">DataLake</span>
+                    <div class="skill-bar"><div class="skill-fill" data-level="80"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon"><i class="fab fa-microsoft"></i></div>
+                    <span class="skill-name">Power Platform</span>
+                    <div class="skill-bar"><div class="skill-fill" data-level="85"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon"><i class="fas fa-comments"></i></div>
+                    <span class="skill-name">ChatBot / AI</span>
+                    <div class="skill-bar"><div class="skill-fill" data-level="80"></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Awards Section -->
-    <section class="section" id="awards">
+    <section class="section section-alt" id="awards">
         <div class="container">
             <h2 class="section-title">Awards &amp; Recognition</h2>
             <div class="awards-grid">
