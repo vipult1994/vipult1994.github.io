@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (typingEl) {
         var phrases = [
             'Sr. Solutions Architect — Agentic AI | FinOps COE',
-            'Blue Prism MVP x4 | UiPath Certified',
+            'Blue Prism MVP x5 | UiPath Certified',
             'Enterprise Automation Leader',
             'Professional Speaker & Mentor',
             'AWS | RPA | Python | AI'
@@ -144,57 +144,50 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // ===== Testimonials Carousel =====
-    var track = document.getElementById('testimonialTrack');
+    // ===== Testimonials Horizontal Slider =====
+    var sliderTrack = document.getElementById('sliderTrack');
     var prevBtn = document.getElementById('prevBtn');
     var nextBtn = document.getElementById('nextBtn');
-    var dotsContainer = document.getElementById('carouselDots');
-    if (track && prevBtn && nextBtn && dotsContainer) {
-        var cards = track.querySelectorAll('.testimonial-card');
-        var currentSlide = 0;
-        var totalSlides = cards.length;
-        var autoplayInterval;
+    if (sliderTrack && prevBtn && nextBtn) {
+        var testiCards = sliderTrack.querySelectorAll('.testi-card');
+        var currentPos = 0;
+        var cardsVisible = 3;
+        var totalCards = testiCards.length;
+        var maxPos = totalCards - cardsVisible;
+        var autoSlide;
 
-        // Create dots
-        for (var d = 0; d < totalSlides; d++) {
-            var dot = document.createElement('button');
-            dot.className = 'carousel-dot' + (d === 0 ? ' active' : '');
-            dot.setAttribute('aria-label', 'Go to testimonial ' + (d + 1));
-            dot.dataset.index = d;
-            dot.addEventListener('click', function() {
-                goToSlide(parseInt(this.dataset.index));
-            });
-            dotsContainer.appendChild(dot);
+        function getCardsVisible() {
+            if (window.innerWidth <= 768) return 1;
+            if (window.innerWidth <= 1024) return 2;
+            return 3;
         }
 
-        function goToSlide(index) {
-            currentSlide = index;
-            track.style.transform = 'translateX(-' + (currentSlide * 100) + '%)';
-            var dots = dotsContainer.querySelectorAll('.carousel-dot');
-            dots.forEach(function(dt, i) {
-                dt.classList.toggle('active', i === currentSlide);
-            });
+        function updateSlider() {
+            cardsVisible = getCardsVisible();
+            maxPos = Math.max(0, totalCards - cardsVisible);
+            if (currentPos > maxPos) currentPos = maxPos;
+            var gap = 20;
+            sliderTrack.style.transform = 'translateX(-' + (currentPos * (100 / cardsVisible + (gap * 100 / sliderTrack.parentElement.offsetWidth))) + '%)';
         }
 
-        prevBtn.addEventListener('click', function() {
-            goToSlide(currentSlide === 0 ? totalSlides - 1 : currentSlide - 1);
-            resetAutoplay();
-        });
-        nextBtn.addEventListener('click', function() {
-            goToSlide(currentSlide === totalSlides - 1 ? 0 : currentSlide + 1);
-            resetAutoplay();
-        });
+        function slideNext() {
+            currentPos = currentPos >= maxPos ? 0 : currentPos + 1;
+            updateSlider();
+        }
+        function slidePrev() {
+            currentPos = currentPos <= 0 ? maxPos : currentPos - 1;
+            updateSlider();
+        }
 
-        function startAutoplay() {
-            autoplayInterval = setInterval(function() {
-                goToSlide(currentSlide === totalSlides - 1 ? 0 : currentSlide + 1);
-            }, 5000);
-        }
-        function resetAutoplay() {
-            clearInterval(autoplayInterval);
-            startAutoplay();
-        }
-        startAutoplay();
+        nextBtn.addEventListener('click', function() { slideNext(); resetAuto(); });
+        prevBtn.addEventListener('click', function() { slidePrev(); resetAuto(); });
+
+        function startAuto() { autoSlide = setInterval(slideNext, 4000); }
+        function resetAuto() { clearInterval(autoSlide); startAuto(); }
+        startAuto();
+
+        window.addEventListener('resize', updateSlider);
+        updateSlider();
     }
 
     // ===== Floating Particles =====
