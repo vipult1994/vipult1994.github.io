@@ -178,6 +178,21 @@ ul { list-style: none; }
 }
 .stat-label { font-size: 0.8rem; color: var(--text-muted); margin-top: 4px; }
 
+/* ===== LinkedIn Badge ===== */
+.linkedin-badge-section {
+    margin-top: 48px; display: flex; justify-content: center;
+}
+.badge-wrapper {
+    background: var(--bg-alt); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 24px; transition: all var(--transition); min-width: 300px; text-align: center;
+}
+.badge-wrapper:hover { border-color: #0a66c2; box-shadow: 0 4px 20px rgba(10, 102, 194, 0.2); }
+.badge-base__link {
+    color: #0a66c2; font-weight: 600; font-size: 0.95rem;
+    display: inline-flex; align-items: center; gap: 6px;
+}
+.badge-base__link:hover { color: #004182; }
+
 /* ===== Timeline ===== */
 .timeline { position: relative; padding-left: 40px; }
 .timeline::before {
