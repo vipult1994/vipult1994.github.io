@@ -12,733 +12,400 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <a href="#hero" class="nav-logo">VT</a>
-            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
-                <span></span><span></span><span></span>
-            </button>
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="#about">About</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#awards">Awards</a></li>
-                <li><a href="#speaking">Speaking</a></li>
-                <li><a href="#testimonials">Testimonials</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#certifications">Certifications</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
-                <i class="fas fa-moon" id="themeIcon"></i>
-            </button>
-        </div>
-    </nav>
+    <!-- Slide Navigation -->
+    <div class="slide-nav">
+        <button class="slide-arrow slide-prev" id="slidePrev" aria-label="Previous slide"><i class="fas fa-chevron-left"></i></button>
+        <span class="slide-counter" id="slideCounter">1 / 7</span>
+        <button class="slide-arrow slide-next" id="slideNext" aria-label="Next slide"><i class="fas fa-chevron-right"></i></button>
+    </div>
 
-    <!-- Hero Section -->
-    <section class="hero" id="hero">
-        <div class="hero-parallax" id="heroParallax"></div>
-        <div class="hero-particles" id="particles"></div>
-        <div class="hero-content">
-            <div class="hero-badge">Available for Collaboration</div>
-            <div class="hero-profile">
-                <img src="picture.jpeg" alt="Vipul Tiwari" class="hero-avatar">
-            </div>
-            <h1 class="hero-title">
-                <span class="greeting">Hello, I'm</span>
-                <span class="name">Vipul Tiwari</span>
-            </h1>
-            <p class="hero-subtitle" id="typingText"></p>
-            <p class="hero-company"><i class="fab fa-aws"></i> Amazon AWS, Bratislava, Slovakia</p>
+    <!-- Page dots -->
+    <div class="page-dots" id="pageDots"></div>
+
+    <!-- Theme toggle -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
+        <i class="fas fa-moon" id="themeIcon"></i>
+    </button>
+
+    <!-- ==================== SLIDE 1: HERO ==================== -->
+    <section class="slide active" data-slide="0">
+        <div class="slide-inner hero-slide">
+            <div class="hero-particles" id="particles"></div>
+            <div class="hero-glow"></div>
+            <img src="picture.jpeg" alt="Vipul Tiwari" class="hero-avatar">
+            <h1 class="hero-name">Vipul Tiwari</h1>
+            <p class="hero-role" id="typingText"></p>
+            <p class="hero-location"><i class="fab fa-aws"></i> Amazon AWS, Bratislava, Slovakia</p>
             <div class="hero-tags">
-                <span class="tag">Agentic AI</span>
-                <span class="tag">RPA</span>
-                <span class="tag">AWS</span>
-                <span class="tag">FinOps</span>
-                <span class="tag">Blue Prism MVP x5</span>
-                <span class="tag">UiPath</span>
-                <span class="tag">Python</span>
+                <span class="tag">Agentic AI</span><span class="tag">RPA</span><span class="tag">AWS</span>
+                <span class="tag">FinOps</span><span class="tag">Blue Prism MVP x5</span><span class="tag">UiPath</span><span class="tag">Python</span>
             </div>
-            <div class="hero-cta">
-                <a href="#contact" class="btn btn-primary">Get in Touch</a>
-                <a href="#experience" class="btn btn-outline">View Experience</a>
-                <a href="Vipul Tiwari_architect.pdf" download class="btn btn-outline"><i class="fas fa-download"></i> Resume</a>
+            <p class="hero-summary">Results-driven Sr. Solutions Architect with deep expertise in Agentic AI, RPA, and enterprise automation. Leading global teams of 20+ members, driving AI-augmented agentic ecosystem integration. Five-time Blue Prism MVP, UiPath Community Award Winner, professional speaker, hackathon judge, and mentor.</p>
+            <div class="hero-actions">
+                <a href="Vipul Tiwari_architect.pdf" download class="btn btn-primary"><i class="fas fa-download"></i> Resume</a>
                 <a href="cover-letter.html" target="_blank" class="btn btn-outline"><i class="fas fa-file-alt"></i> Cover Letter</a>
-            </div>
-        </div>
-        <div class="scroll-indicator">
-            <span>Scroll</span>
-            <div class="scroll-line"></div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="section" id="about">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-grid">
-                <div class="about-text">
-                    <p>A results-driven Sr. Solutions Architect at Amazon AWS with deep expertise in Agentic AI, RPA, and enterprise automation. I lead global teams of 20+ members across AR, AP, and SSA verticals, driving AI-augmented agentic ecosystem integration and cutting-edge automation.</p>
-                    <p>A five-time Blue Prism MVP, UiPath Community Award Winner, and passionate advocate for collective community growth. I believe in driving everything with a technical mindset and a "Yes" attitude fueled by curiosity and continuous learning.</p>
-                    <p>Professional speaker, hackathon judge, and mentor — I'm committed to empowering the next generation of automation professionals worldwide.</p>
-                </div>
-                <div class="about-sidebar">
-                    <div class="badge-wrapper" id="linkedin-badge">
-                        <div class="badge-base LI-profile-badge"
-                             data-locale="en_US"
-                             data-size="large"
-                             data-theme="dark"
-                             data-type="VERTICAL"
-                             data-vanity="vipul-tiwari-7277a2146"
-                             data-version="v1">
-                            <a class="badge-base__link LI-simple-link"
-                               href="https://www.linkedin.com/in/vipul-tiwari-7277a2146?trk=profile-badge"
-                               target="_blank" rel="noopener noreferrer">
-                                <i class="fab fa-linkedin"></i> View LinkedIn Profile
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                <a href="https://www.linkedin.com/in/vipul-tiwari-7277a2146/" target="_blank" class="btn btn-outline"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="https://github.com/vipult1994" target="_blank" class="btn btn-outline"><i class="fab fa-github"></i> GitHub</a>
+                <a href="mailto:[email]" class="btn btn-outline"><i class="fas fa-envelope"></i> Email</a>
             </div>
         </div>
     </section>
 
-    <!-- Experience Section -->
-    <section class="section section-alt" id="experience">
-        <div class="container">
-            <h2 class="section-title">Professional Experience</h2>
-            <div class="timeline">
-
-                <!-- Amazon AWS - Current Role -->
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <div>
-                                <h3>Sr. Solutions Architect — Agentic AI | FinOps COE (L6)</h3>
-                                <p class="company"><i class="fab fa-aws"></i> Amazon AWS, Bratislava, Slovakia</p>
-                            </div>
-                            <span class="timeline-date">Feb 2025 — Present</span>
+    <!-- ==================== SLIDE 2: EXPERIENCE ==================== -->
+    <section class="slide" data-slide="1">
+        <div class="slide-inner">
+            <h2 class="slide-title"><i class="fas fa-briefcase"></i> Experience</h2>
+            <div class="scroll-area">
+                <div class="exp-list">
+                    <div class="exp-item">
+                        <div class="exp-header" onclick="this.parentElement.classList.toggle('open')">
+                            <div class="exp-meta"><span class="exp-date">Feb 2025 — Present</span><span class="exp-title">Sr. Solutions Architect — Agentic AI | FinOps COE (L6)</span><span class="exp-company">Amazon AWS, Bratislava</span></div>
+                            <span class="exp-toggle">+</span>
                         </div>
-                        <p class="tech-stack">Alteryx, Agentic AI, UiPath, AWS, Tableau, Python, Appian, Chime, DataLake, ChatBot</p>
-                        <ul>
-                            <li>Leading enterprise-wide automation initiatives and managing 20+ global team members across AR, AP and SSA verticals, focusing on RPA, AI-augmented agentic ecosystem integration</li>
-                            <li>Acting as Technical Program Manager for RPA and Agentic AI implementation, driving innovation and adoption across organization</li>
-                            <li>Spearheading the Future of Work taskforce to identify emerging technologies and bridge skill gaps</li>
-                            <li>Establishing comprehensive sustainability roadmap aligning automation initiatives with Amazon's climate pledge</li>
-                            <li>Developing centralized design and release framework for improved automation process management</li>
-                            <li>Managing global AWS infrastructure setup including serverless architectures and API integrations</li>
-                            <li>Orchestrating cross-functional collaboration and resource alignment across multiple business units</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Amazon AWS - Solutions Architect -->
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <div>
-                                <h3>Solutions Architect | FinOps COE (L5)</h3>
-                                <p class="company"><i class="fab fa-aws"></i> Amazon AWS, Bratislava, Slovakia</p>
-                            </div>
-                            <span class="timeline-date">Dec 2023 — Feb 2025</span>
+                        <div class="exp-body">
+                            <p class="exp-tech">Alteryx, Agentic AI, UiPath, AWS, Tableau, Python, Appian, DataLake, ChatBot</p>
+                            <ul>
+                                <li>Leading enterprise-wide automation initiatives and managing 20+ global team members across AR, AP and SSA verticals</li>
+                                <li>Acting as Technical Program Manager for RPA and Agentic AI implementation</li>
+                                <li>Spearheading the Future of Work taskforce to identify emerging technologies and bridge skill gaps</li>
+                                <li>Establishing comprehensive sustainability roadmap aligning with Amazon's climate pledge</li>
+                                <li>Managing global AWS infrastructure setup including serverless architectures and API integrations</li>
+                                <li>Orchestrating cross-functional collaboration across multiple business units</li>
+                            </ul>
                         </div>
-                        <p class="tech-stack">Alteryx, UiPath, AWS, Tableau, Python, Appian, Chime, DataLake, ChatBot</p>
-                        <ul>
-                            <li>Revolutionized Statement of Account Automation (EU6) achieving 99K hours savings over 3 years</li>
-                            <li>Architected automated dunning solution across 36 teams, generating 782K automated emails with 87K hours savings</li>
-                            <li>Led end-to-end AWS infrastructure: 29 S3 buckets, 4 EC2 instances, complete NAWS environment, Centauri integration, 420+ ticket resolution</li>
-                            <li>Spearheaded Credit Notes COE project managing extraction of 7M+ CNs for Tableau analytics</li>
-                            <li>Established RPA security standards framework adopted across AR, AP, and Payroll departments</li>
-                            <li>Mentored 17 citizen developers resulting in 25K+ annual hours savings</li>
-                            <li>Created knowledge sharing platform with 273+ subscribers and 21 training videos</li>
-                            <li>Conducted 33 technical interviews for AP, AR and Ads Success teams</li>
-                            <li>Improved collection rates from 91.5% to 97.47%; reduced Weighted Average Days Late by 13 days</li>
-                            <li>Demonstrated 18% improvement in 31+ days aging for onboarded customers</li>
-                            <li>Led China Automation Journey — three LIVE processes saving 45K hours annually</li>
-                        </ul>
                     </div>
-                </div>
-
-                <!-- Amazon AWS - Sr. Process Simplification Developer -->
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <div>
-                                <h3>Sr. Process Simplification Developer (L5) | FinOps COE</h3>
-                                <p class="company"><i class="fab fa-aws"></i> Amazon AWS, Hyderabad, India</p>
-                            </div>
-                            <span class="timeline-date">Sep 2021 — Dec 2023</span>
+                    <div class="exp-item">
+                        <div class="exp-header" onclick="this.parentElement.classList.toggle('open')">
+                            <div class="exp-meta"><span class="exp-date">Dec 2023 — Feb 2025</span><span class="exp-title">Solutions Architect | FinOps COE (L5)</span><span class="exp-company">Amazon AWS, Bratislava</span></div>
+                            <span class="exp-toggle">+</span>
                         </div>
-                        <p class="tech-stack">Alteryx, UiPath, AWS, Tableau, Python, Appian, Chime, DataLake, ChatBot</p>
-                        <ul>
-                            <li>Created 2 unattended RPA bots for Vendor Returns POD Automation; 18M+ PODs pushed to Amazon from 14 Carriers</li>
-                            <li>Managing Citizen Development Program across Amazon FinOps</li>
-                            <li>Delivered 6 FinOps COE Bootcamps with 600+ participants creating 32 intakes with 92K+ potential hours savings</li>
-                            <li>End-to-end AWS infra setup: 7 S3 buckets, 5 EC2, Transfer Family, Pipeline, VPC, NAWS cloud environment</li>
-                            <li>Launched RPA Intake forum, office hours, enhanced SIM Intake form, and COE Security Process Documentation</li>
-                            <li>Created UiPath integration with DataLake for secure data access with restricted PI access</li>
-                            <li>Driver and member of UiPath cross-BU collaboration community within Amazon</li>
-                            <li>Enhanced COE Wiki and created FinOps AWS Learnings page</li>
-                            <li>Developed and documented RPA configuration best practices using core workflow principles</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Turbotic -->
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <div>
-                                <h3>Advisor to Chief Strategy Officer (CSO)</h3>
-                                <p class="company"><i class="fas fa-building"></i> Turbotic, Sweden</p>
-                            </div>
-                            <span class="timeline-date">Aug 2022 — Dec 2023</span>
+                        <div class="exp-body">
+                            <p class="exp-tech">Alteryx, UiPath, AWS, Tableau, Python, Appian, DataLake, ChatBot</p>
+                            <ul>
+                                <li>Revolutionized Statement of Account Automation achieving 99K hours savings over 3 years</li>
+                                <li>Architected automated dunning solution across 36 teams — 782K emails, 87K hours saved</li>
+                                <li>Led AWS infrastructure: 29 S3 buckets, 4 EC2, NAWS environment, 420+ tickets resolved</li>
+                                <li>Mentored 17 citizen developers resulting in 25K+ annual hours savings</li>
+                                <li>Improved collection rates from 91.5% to 97.47%; reduced WADL by 13 days</li>
+                                <li>Led China Automation Journey — three LIVE processes saving 45K hours annually</li>
+                            </ul>
                         </div>
-                        <ul>
-                            <li>Product review and feedback for the integrated platform to automate, scale and optimise automation</li>
-                            <li>Support and planning for the launch of Turbotic Community Platform</li>
-                        </ul>
                     </div>
-                </div>
-
-                <!-- Fidelity - Senior Role -->
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <div>
-                                <h3>Process Optimisation and Simplification Designer</h3>
-                                <p class="company"><i class="fas fa-chart-line"></i> Fidelity International, Gurgaon, India</p>
-                            </div>
-                            <span class="timeline-date">Mar 2021 — Sep 2021</span>
+                    <div class="exp-item">
+                        <div class="exp-header" onclick="this.parentElement.classList.toggle('open')">
+                            <div class="exp-meta"><span class="exp-date">Sep 2021 — Dec 2023</span><span class="exp-title">Sr. Process Simplification Developer (L5) | FinOps COE</span><span class="exp-company">Amazon AWS, Hyderabad</span></div>
+                            <span class="exp-toggle">+</span>
                         </div>
-                        <p class="tech-stack">Microsoft Power Platform, Python, APIs, RPA, Appian, Layer7</p>
-                        <ul>
-                            <li>Established enterprise-wide hyperautomation strategy, driving 30% efficiency improvement</li>
-                            <li>Developed PSO Governance framework for RPA and Hyperautomation across global teams</li>
-                            <li>Managed cross-functional teams of 15+ members with 95% on-time delivery rate</li>
-                            <li>Led Agile transformation resulting in 40% faster time-to-market for automation solutions</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Fidelity - Developer Role -->
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <div>
-                                <h3>Senior Process Optimisation and Simplification Developer</h3>
-                                <p class="company"><i class="fas fa-chart-line"></i> Fidelity International, Gurgaon, India</p>
-                            </div>
-                            <span class="timeline-date">Nov 2019 — Mar 2021</span>
+                        <div class="exp-body">
+                            <p class="exp-tech">Alteryx, UiPath, AWS, Tableau, Python, Appian, DataLake</p>
+                            <ul>
+                                <li>Created 2 unattended RPA bots for Vendor Returns POD Automation; 18M+ PODs from 14 Carriers</li>
+                                <li>Delivered 6 FinOps COE Bootcamps with 600+ participants, 92K+ potential hours savings</li>
+                                <li>End-to-end AWS infra: 7 S3 buckets, 5 EC2, Transfer Family, Pipeline, VPC</li>
+                                <li>Created UiPath integration with DataLake for secure data access</li>
+                                <li>Driver of UiPath cross-BU collaboration community within Amazon</li>
+                            </ul>
                         </div>
-                        <ul>
-                            <li>Program managed Microsoft x Fidelity Hackathon with 100+ participants</li>
-                            <li>Spearheaded Microsoft Power Platform adoption — 50% increase in citizen development</li>
-                            <li>Led automated peer review system "Aquaman," reducing review time by 60%</li>
-                            <li>Directed AI integration program "IA Connect," enhancing RPA with cognitive services</li>
-                            <li>Launched enterprise-wide Language Translation Service using AI/ML, serving 1000+ global clients</li>
-                            <li>Achieved 40% reduction in development time through standardized frameworks</li>
-                            <li>COA Process (Appian/Layer7): Designed automated client address change journey with Kofax OCR, SAIL interface, and Mainframe RPA integration</li>
-                            <li>EFT Payments Tribe (Appian/Layer7): Architected payment identification system with API/Service calls, refund template auto-creation, and task linking</li>
-                        </ul>
                     </div>
-                </div>
-
-                <!-- Re:Sources Publicis -->
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <div>
-                                <h3>Associate Technology L2 Engineer</h3>
-                                <p class="company"><i class="fas fa-building"></i> Re:Sources, A Publicis Groupe Company (Sapient), Gurgaon, India</p>
-                            </div>
-                            <span class="timeline-date">Jun 2019 — Oct 2019</span>
+                    <div class="exp-item">
+                        <div class="exp-header" onclick="this.parentElement.classList.toggle('open')">
+                            <div class="exp-meta"><span class="exp-date">Aug 2022 — Dec 2023</span><span class="exp-title">Advisor to Chief Strategy Officer (CSO)</span><span class="exp-company">Turbotic, Sweden</span></div>
+                            <span class="exp-toggle">+</span>
                         </div>
-                        <p class="tech-stack">UiPath, Abby OCR, Google Cloud Vision API, Microsoft Power Automate</p>
-                        <ul>
-                            <li>Developed RPA solutions with UiPath using Excel, Citrix, GUI and OCR</li>
-                            <li>Utilized Google Cloud Vision API, Abby Flexi Capture Engine OCR for complex client solutions</li>
-                            <li>Built Microsoft Flow/Power Automate based solutions and POCs</li>
-                            <li>Part of the team that setup Centre of Excellence for Automation in Publicis Groupe</li>
-                            <li>Developed custom components for UiPath Platform (Twilio APIs, MS Azure) — won awards</li>
-                            <li>Handled stakeholders from various countries, adhering to GDPR (EU) and security standards</li>
-                            <li>Mentored junior developers on OCR technology (Abbyy FlexiCapture) and performed code reviews</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Ericsson -->
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <div>
-                                <h3>Tools &amp; Process Engineer / RPA Developer</h3>
-                                <p class="company"><i class="fas fa-broadcast-tower"></i> Ericsson India Global Services, Gurgaon, India</p>
-                            </div>
-                            <span class="timeline-date">Jan 2018 — May 2019</span>
+                        <div class="exp-body">
+                            <ul>
+                                <li>Product review and feedback for the integrated automation platform</li>
+                                <li>Support and planning for the launch of Turbotic Community Platform</li>
+                            </ul>
                         </div>
-                        <p class="tech-stack">Blue Prism, UiPath, Python, VBA, SAP, Citrix</p>
-                        <ul>
-                            <li>SPOC and Trainer for the RPA program within Ericsson Site Engineering</li>
-                            <li>Skilled and mentored 20+ resources in Blue Prism from non-technical backgrounds</li>
-                            <li>MBNL Finance (Blue Prism/Python): SAP through Citrix automation with SOAP Web Service for credentials</li>
-                            <li>Scripts2Go Automate (UiPath): First customer for Sweden Leaders — automated script generation and error checking</li>
-                            <li>PDI Delivery (Blue Prism/VBA): Automated site downloading, AutoCAD conversion, and uploads for Brazil operators</li>
-                            <li>MBNL-UK Handover (Blue Prism/VBA): Hop checking and uploading in ADC build tool</li>
-                            <li>Bulk Precheck (Blue Prism/RedBot): Email-triggered health check automation for bulk nodes</li>
-                            <li>Bytel Crozon Data Preparation (Blue Prism/Macro): Automated data filtering and formatting</li>
-                            <li>Won Impact Award for exceptional business impact, saving ~12 FTE headcount</li>
-                        </ul>
                     </div>
-                </div>
-
-                <!-- Ericsson - Assistant Engineer -->
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <div>
-                                <h3>Assistant Engineer</h3>
-                                <p class="company"><i class="fas fa-broadcast-tower"></i> Ericsson India Global Services, Gurgaon, India</p>
-                            </div>
-                            <span class="timeline-date">Aug 2017 — Jan 2018</span>
+                    <div class="exp-item">
+                        <div class="exp-header" onclick="this.parentElement.classList.toggle('open')">
+                            <div class="exp-meta"><span class="exp-date">Mar 2021 — Sep 2021</span><span class="exp-title">Process Optimisation and Simplification Designer</span><span class="exp-company">Fidelity International, Gurgaon</span></div>
+                            <span class="exp-toggle">+</span>
                         </div>
-                        <p class="tech-stack">Blue Prism, SAP, Citrix</p>
-                        <ul>
-                            <li>MBNL Finance: Automated Purchase Request creation in SAP through Citrix environment using Blue Prism</li>
-                            <li>NBN Australia (LTE-TDD, MIMO, Overlay): Automated battery dimensioning for Ericsson Radio Base Stations</li>
-                            <li>Prepared, reviewed and quality-checked Site Installation Documents, Plan Specifications, and As-Built Drawings</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Ericsson - Assistant Engineer Trainee -->
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <div>
-                                <h3>Assistant Engineer Trainee</h3>
-                                <p class="company"><i class="fas fa-broadcast-tower"></i> Ericsson India Global Services, Gurgaon, India</p>
-                            </div>
-                            <span class="timeline-date">Jul 2017 — Aug 2017</span>
+                        <div class="exp-body">
+                            <p class="exp-tech">Microsoft Power Platform, Python, APIs, RPA, Appian, Layer7</p>
+                            <ul>
+                                <li>Established enterprise-wide hyperautomation strategy — 30% efficiency improvement</li>
+                                <li>Developed PSO Governance framework for RPA and Hyperautomation</li>
+                                <li>Managed cross-functional teams of 15+ members with 95% on-time delivery</li>
+                                <li>Led Agile transformation — 40% faster time-to-market</li>
+                            </ul>
                         </div>
-                        <ul>
-                            <li>Site Engineering for Indonesian (Telkomsel, Indosat) and Brazilian (Claro, TIM, VIVO) operators</li>
-                            <li>Prepared layout plans, Site Installation Documents, and As-Built Drawings using Ericsson tools</li>
-                            <li>Knowledge of GSM RAN, WCDMA RAN, and Ericsson RBS product lines</li>
-                        </ul>
                     </div>
-                </div>
-
-                <!-- Indian Railways - Intern -->
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <div>
-                                <h3>Engineering Intern</h3>
-                                <p class="company"><i class="fas fa-train"></i> Indian Railways, Rajasthan, India</p>
-                            </div>
-                            <span class="timeline-date">May 2016 — Jul 2016</span>
+                    <div class="exp-item">
+                        <div class="exp-header" onclick="this.parentElement.classList.toggle('open')">
+                            <div class="exp-meta"><span class="exp-date">Nov 2019 — Mar 2021</span><span class="exp-title">Senior Process Optimisation and Simplification Developer</span><span class="exp-company">Fidelity International, Gurgaon</span></div>
+                            <span class="exp-toggle">+</span>
                         </div>
-                        <ul>
-                            <li>Practical training in Automatic Electronic Exchange, Microwave Communication, and Railnet</li>
-                            <li>Worked on Passenger Reservation System, Signalling System &amp; Optical Fiber Communication</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Aryan Infomatrix - Intern -->
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <div>
-                                <h3>Android Developer Intern</h3>
-                                <p class="company"><i class="fas fa-mobile-alt"></i> Aryan Infomatrix Pvt Ltd, Jaipur, India</p>
-                            </div>
-                            <span class="timeline-date">Jul 2015 — Sep 2015</span>
+                        <div class="exp-body">
+                            <ul>
+                                <li>Program managed Microsoft x Fidelity Hackathon with 100+ participants</li>
+                                <li>Spearheaded Microsoft Power Platform adoption — 50% increase in citizen development</li>
+                                <li>Led automated peer review system "Aquaman" — 60% reduction in review time</li>
+                                <li>Launched Language Translation Service using AI/ML, serving 1000+ global clients</li>
+                                <li>COA Process &amp; EFT Payments Tribe (Appian/Layer7) architecture</li>
+                            </ul>
                         </div>
-                        <ul>
-                            <li>Developed Android applications including a Scientific Calculator and Bulls &amp; Cows game</li>
-                        </ul>
                     </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Tech Stack Section -->
-    <section class="section" id="skills">
-        <div class="container">
-            <h2 class="section-title">Tech Stack</h2>
-            <div class="skills-grid">
-                <div class="skill-card"><div class="skill-icon-wrap"><i class="fab fa-aws"></i></div><div class="skill-info"><span class="skill-name">AWS</span><div class="skill-bar"><div class="skill-fill" data-level="95"></div></div></div></div>
-                <div class="skill-card"><div class="skill-icon-wrap"><i class="fas fa-robot"></i></div><div class="skill-info"><span class="skill-name">UiPath</span><div class="skill-bar"><div class="skill-fill" data-level="95"></div></div></div></div>
-                <div class="skill-card"><div class="skill-icon-wrap"><i class="fas fa-cogs"></i></div><div class="skill-info"><span class="skill-name">Blue Prism</span><div class="skill-bar"><div class="skill-fill" data-level="95"></div></div></div></div>
-                <div class="skill-card"><div class="skill-icon-wrap"><i class="fab fa-python"></i></div><div class="skill-info"><span class="skill-name">Python</span><div class="skill-bar"><div class="skill-fill" data-level="85"></div></div></div></div>
-                <div class="skill-card"><div class="skill-icon-wrap"><i class="fas fa-brain"></i></div><div class="skill-info"><span class="skill-name">Agentic AI</span><div class="skill-bar"><div class="skill-fill" data-level="90"></div></div></div></div>
-                <div class="skill-card"><div class="skill-icon-wrap"><i class="fas fa-chart-bar"></i></div><div class="skill-info"><span class="skill-name">Tableau</span><div class="skill-bar"><div class="skill-fill" data-level="80"></div></div></div></div>
-                <div class="skill-card"><div class="skill-icon-wrap"><i class="fas fa-cubes"></i></div><div class="skill-info"><span class="skill-name">Appian</span><div class="skill-bar"><div class="skill-fill" data-level="85"></div></div></div></div>
-                <div class="skill-card"><div class="skill-icon-wrap"><i class="fas fa-database"></i></div><div class="skill-info"><span class="skill-name">Alteryx</span><div class="skill-bar"><div class="skill-fill" data-level="80"></div></div></div></div>
-                <div class="skill-card"><div class="skill-icon-wrap"><i class="fas fa-cloud"></i></div><div class="skill-info"><span class="skill-name">AWS Bedrock</span><div class="skill-bar"><div class="skill-fill" data-level="85"></div></div></div></div>
-                <div class="skill-card"><div class="skill-icon-wrap"><i class="fas fa-server"></i></div><div class="skill-info"><span class="skill-name">DataLake</span><div class="skill-bar"><div class="skill-fill" data-level="80"></div></div></div></div>
-                <div class="skill-card"><div class="skill-icon-wrap"><i class="fab fa-microsoft"></i></div><div class="skill-info"><span class="skill-name">Power Platform</span><div class="skill-bar"><div class="skill-fill" data-level="85"></div></div></div></div>
-                <div class="skill-card"><div class="skill-icon-wrap"><i class="fas fa-comments"></i></div><div class="skill-info"><span class="skill-name">ChatBot / AI</span><div class="skill-bar"><div class="skill-fill" data-level="80"></div></div></div></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Awards Section -->
-    <section class="section section-alt" id="awards">
-        <div class="container">
-            <h2 class="section-title">Awards &amp; Recognition</h2>
-            <div class="awards-grid">
-                <div class="award-card">
-                    <div class="award-icon"><i class="fas fa-trophy"></i></div>
-                    <h3>Blue Prism MVP</h3>
-                    <p>5x Most Valuable Professional — 2021, 2022, 2023, 2024, 2025</p>
-                </div>
-                <div class="award-card">
-                    <div class="award-icon"><i class="fas fa-star"></i></div>
-                    <h3>Blue Prism MVP of the Year</h3>
-                    <p>2022 — Recognized as the top MVP globally</p>
-                </div>
-                <div class="award-card">
-                    <div class="award-icon"><i class="fas fa-award"></i></div>
-                    <h3>Developer of the Year Finalist</h3>
-                    <p>Blue Prism Developer of the Year — Finalist</p>
-                </div>
-                <div class="award-card">
-                    <div class="award-icon"><i class="fas fa-medal"></i></div>
-                    <h3>UiPath Community Award</h3>
-                    <p>Winner — Felicitated at Las Vegas for BOT for Visually Impaired</p>
-                </div>
-                <div class="award-card">
-                    <div class="award-icon"><i class="fas fa-bolt"></i></div>
-                    <h3>Ericsson Impact Award</h3>
-                    <p>2018 — Exceptional business impact, saving ~12 FTE headcount</p>
-                </div>
-                <div class="award-card">
-                    <div class="award-icon"><i class="fas fa-code"></i></div>
-                    <h3>2x UiPath Hackathon Winner</h3>
-                    <p>2020 — Developed automation solutions for accessibility</p>
-                </div>
-                <div class="award-card">
-                    <div class="award-icon"><i class="fas fa-rocket"></i></div>
-                    <h3>Automation &amp; Power Award</h3>
-                    <p>Ericsson — Automated a scope global leaders deemed impossible</p>
+                    <div class="exp-item">
+                        <div class="exp-header" onclick="this.parentElement.classList.toggle('open')">
+                            <div class="exp-meta"><span class="exp-date">Jun 2019 — Oct 2019</span><span class="exp-title">Associate Technology L2 Engineer</span><span class="exp-company">Re:Sources / Publicis Sapient, Gurgaon</span></div>
+                            <span class="exp-toggle">+</span>
+                        </div>
+                        <div class="exp-body">
+                            <p class="exp-tech">UiPath, Abby OCR, Google Cloud Vision API, Power Automate</p>
+                            <ul>
+                                <li>Developed RPA solutions with UiPath using Excel, Citrix, GUI and OCR</li>
+                                <li>Setup Centre of Excellence for Automation in Publicis Groupe</li>
+                                <li>Developed custom UiPath components (Twilio APIs, MS Azure) — won awards</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="exp-item">
+                        <div class="exp-header" onclick="this.parentElement.classList.toggle('open')">
+                            <div class="exp-meta"><span class="exp-date">Jan 2018 — May 2019</span><span class="exp-title">Tools &amp; Process Engineer / RPA Developer</span><span class="exp-company">Ericsson, Gurgaon</span></div>
+                            <span class="exp-toggle">+</span>
+                        </div>
+                        <div class="exp-body">
+                            <p class="exp-tech">Blue Prism, UiPath, Python, VBA, SAP, Citrix</p>
+                            <ul>
+                                <li>SPOC and Trainer for the RPA program within Ericsson Site Engineering</li>
+                                <li>Mentored 20+ resources in Blue Prism from non-technical backgrounds</li>
+                                <li>Scripts2Go, PDI Delivery, MBNL-UK Handover, Bulk Precheck automations</li>
+                                <li>Won Impact Award — saving ~12 FTE headcount</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="exp-item">
+                        <div class="exp-header" onclick="this.parentElement.classList.toggle('open')">
+                            <div class="exp-meta"><span class="exp-date">Aug 2017 — Jan 2018</span><span class="exp-title">Assistant Engineer</span><span class="exp-company">Ericsson, Gurgaon</span></div>
+                            <span class="exp-toggle">+</span>
+                        </div>
+                        <div class="exp-body">
+                            <ul>
+                                <li>MBNL Finance: SAP through Citrix automation using Blue Prism</li>
+                                <li>NBN Australia: Automated battery dimensioning for Radio Base Stations</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="exp-item">
+                        <div class="exp-header" onclick="this.parentElement.classList.toggle('open')">
+                            <div class="exp-meta"><span class="exp-date">Jul 2017 — Aug 2017</span><span class="exp-title">Assistant Engineer Trainee</span><span class="exp-company">Ericsson, Gurgaon</span></div>
+                            <span class="exp-toggle">+</span>
+                        </div>
+                        <div class="exp-body">
+                            <ul>
+                                <li>Site Engineering for Indonesian and Brazilian operators</li>
+                                <li>GSM RAN, WCDMA RAN, Ericsson RBS product knowledge</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="exp-item">
+                        <div class="exp-header" onclick="this.parentElement.classList.toggle('open')">
+                            <div class="exp-meta"><span class="exp-date">May 2016 — Jul 2016</span><span class="exp-title">Engineering Intern</span><span class="exp-company">Indian Railways, Rajasthan</span></div>
+                            <span class="exp-toggle">+</span>
+                        </div>
+                        <div class="exp-body"><ul><li>Training in Electronic Exchange, Microwave Communication, Railnet, Signalling</li></ul></div>
+                    </div>
+                    <div class="exp-item">
+                        <div class="exp-header" onclick="this.parentElement.classList.toggle('open')">
+                            <div class="exp-meta"><span class="exp-date">Jul 2015 — Sep 2015</span><span class="exp-title">Android Developer Intern</span><span class="exp-company">Aryan Infomatrix, Jaipur</span></div>
+                            <span class="exp-toggle">+</span>
+                        </div>
+                        <div class="exp-body"><ul><li>Developed Scientific Calculator and Bulls &amp; Cows game</li></ul></div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Speaking & Judging Section -->
-    <section class="section section-alt" id="speaking">
-        <div class="container">
-            <h2 class="section-title">Speaking &amp; Judging</h2>
-            <div class="speaking-grid">
-                <div class="speaking-category">
-                    <h3><i class="fas fa-gavel"></i> Judging</h3>
-                    <ul class="speaking-list">
-                        <li>Blue Prism Customer Award Judge — 2021, 2022, 2023, 2024, 2025</li>
-                        <li>Smart India Hackathon (Hardware &amp; Software) Judge — 2020</li>
-                        <li>Cybiant Asia Automation Days Judge — 2021, 2022</li>
-                        <li><a href="https://aijourn.com/judges/" target="_blank">The AI Journal Global Excellence Annual Awards Judge</a></li>
-                        <li>Botathon Judge — 2020, 2022</li>
-                        <li>VITMAS (VIT Vellore) Judge — 2022</li>
-                        <li>NIT Durgapur Hackathon Judge — 2023</li>
-                        <li><a href="https://lnkd.in/gKbgYGs" target="_blank">RPA Riders Eduskills — Mentor &amp; Judge</a></li>
-                    </ul>
-                </div>
-                <div class="speaking-category">
-                    <h3><i class="fas fa-microphone-alt"></i> Speaking</h3>
-                    <ul class="speaking-list">
-                        <li><a href="https://www.youtube.com/watch?v=3Z2b3CCg9Sk" target="_blank">Cybiant — Professional Speaker</a></li>
-                        <li><a href="https://lnkd.in/g74xZzqQ" target="_blank">Automation Days Asia — Panel Member &amp; Speaker (Malaysia 2021)</a></li>
-                        <li>Transform Now — Professional Speaker</li>
-                        <li><a href="https://resources.valuemomentum.com/tech-meetup-by-valuemomentum-jan-28-2021-1-0-0" target="_blank">ValueMomentum — Professional Speaker</a></li>
-                        <li>Upflairs — Professional Speaker</li>
-                        <li>Global Microsoft Power Platform Bootcamp — 2022</li>
-                        <li><a href="https://www.linkedin.com/posts/rtbi-jecrc_tedp2-phase3-evolution-activity-6821334388874215424--YSe" target="_blank">RTBI JECRC — Professional Speaker</a></li>
-                        <li>HRIT Group of Institutions — Speaker on Big Data in IT</li>
-                        <li><a href="https://embed.sounder.fm/play/309273" target="_blank">Blue Prism Podcast — Featured Guest</a></li>
-                    </ul>
-                </div>
-                <div class="speaking-category">
-                    <h3><i class="fas fa-users"></i> Community Leadership</h3>
-                    <ul class="speaking-list">
-                        <li>Blue Prism Gurgaon, Delhi, Noida User Group Lead — 2020, 2021</li>
-                        <li>Service Automation Framework Ambassador</li>
-                        <li><a href="https://www.linkedin.com/posts/vipul-tiwari-7277a2146_microsoft-machinelearning-ai-activity-6794173451595784192-wOch" target="_blank">Mentor for Microsoft x Fidelity Hackathon</a></li>
-                        <li>UiPath cross-BU collaboration community driver at Amazon</li>
-                        <li>Managing Citizen Development Program across Amazon FinOps</li>
-                    </ul>
-                </div>
-                <div class="speaking-category">
-                    <h3><i class="fas fa-pen-fancy"></i> Published Blogs</h3>
-                    <ul class="speaking-list">
-                        <li><a href="https://community.blueprism.com/blogs/vipul-tiwari1/2020/09/10/taking-on-the-blueprism-way" target="_blank">Taking on the Blue Prism Way</a></li>
-                        <li><a href="https://community.blueprism.com/blogs/vipul-tiwari1/2021/01/26/the-journey-of-an-mvp" target="_blank">The Journey of an MVP</a></li>
-                        <li><a href="https://www.cybiant.com/knowledge/empowering-innovation-the-journey-and-multi-faceted-benefits-of-citizen-developer-program/" target="_blank">Empowering Innovation — Cybiant</a></li>
-                        <li><a href="https://community.blueprism.com/blogs/vipul-tiwari1/2024/03/12/beyond-recognition-the-essence-of-being-a-four-tim" target="_blank">Beyond Recognition — Being a Four-Time MVP</a></li>
-                        <li>UiPath Blog: <a href="https://www.uipath.com/community/rpa-community-blog/rpa-developer-recaps-power-up-automation-hackathon-2019" target="_blank">24 Hours of Innovation — RPA Developer's Hackathon Experience</a></li>
-                        <li><a href="https://lnkd.in/dvKZsxim" target="_blank">Glimpse of Botathon</a></li>
-                    </ul>
+    <!-- ==================== SLIDE 3: SKILLS & CERTIFICATIONS ==================== -->
+    <section class="slide" data-slide="2">
+        <div class="slide-inner">
+            <h2 class="slide-title"><i class="fas fa-code"></i> Skills &amp; Certifications</h2>
+            <div class="scroll-area">
+                <div class="two-col">
+                    <div>
+                        <h3 class="sub-title">Tech Stack</h3>
+                        <div class="skills-compact">
+                            <div class="skill-row"><span class="skill-label"><i class="fab fa-aws"></i> AWS</span><div class="skill-bar"><div class="skill-fill" data-level="95"></div></div></div>
+                            <div class="skill-row"><span class="skill-label"><i class="fas fa-robot"></i> UiPath</span><div class="skill-bar"><div class="skill-fill" data-level="95"></div></div></div>
+                            <div class="skill-row"><span class="skill-label"><i class="fas fa-cogs"></i> Blue Prism</span><div class="skill-bar"><div class="skill-fill" data-level="95"></div></div></div>
+                            <div class="skill-row"><span class="skill-label"><i class="fab fa-python"></i> Python</span><div class="skill-bar"><div class="skill-fill" data-level="85"></div></div></div>
+                            <div class="skill-row"><span class="skill-label"><i class="fas fa-brain"></i> Agentic AI</span><div class="skill-bar"><div class="skill-fill" data-level="90"></div></div></div>
+                            <div class="skill-row"><span class="skill-label"><i class="fas fa-chart-bar"></i> Tableau</span><div class="skill-bar"><div class="skill-fill" data-level="80"></div></div></div>
+                            <div class="skill-row"><span class="skill-label"><i class="fas fa-cubes"></i> Appian</span><div class="skill-bar"><div class="skill-fill" data-level="85"></div></div></div>
+                            <div class="skill-row"><span class="skill-label"><i class="fas fa-database"></i> Alteryx</span><div class="skill-bar"><div class="skill-fill" data-level="80"></div></div></div>
+                            <div class="skill-row"><span class="skill-label"><i class="fas fa-cloud"></i> AWS Bedrock</span><div class="skill-bar"><div class="skill-fill" data-level="85"></div></div></div>
+                            <div class="skill-row"><span class="skill-label"><i class="fas fa-server"></i> DataLake</span><div class="skill-bar"><div class="skill-fill" data-level="80"></div></div></div>
+                            <div class="skill-row"><span class="skill-label"><i class="fab fa-microsoft"></i> Power Platform</span><div class="skill-bar"><div class="skill-fill" data-level="85"></div></div></div>
+                            <div class="skill-row"><span class="skill-label"><i class="fas fa-comments"></i> ChatBot / AI</span><div class="skill-bar"><div class="skill-fill" data-level="80"></div></div></div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="sub-title">Certifications</h3>
+                        <div class="cert-list">
+                            <div class="cert-item"><i class="fab fa-aws"></i> AWS Certified Solutions Architect — Associate</div>
+                            <div class="cert-item"><i class="fas fa-certificate"></i> Blue Prism Professional Developer (APD01)</div>
+                            <div class="cert-item"><i class="fas fa-certificate"></i> Blue Prism Certified Developer</div>
+                            <div class="cert-item"><i class="fas fa-certificate"></i> UiPath Advanced Developer</div>
+                            <div class="cert-item"><i class="fas fa-certificate"></i> Appian Level 1 Certified</div>
+                            <div class="cert-item"><i class="fas fa-certificate"></i> CCNA Routing &amp; Switching</div>
+                            <div class="cert-item"><i class="fas fa-certificate"></i> Ericsson Certified Technology — IP</div>
+                            <div class="cert-item"><i class="fas fa-certificate"></i> Service Automation Framework Ambassador</div>
+                            <div class="cert-item"><i class="fas fa-certificate"></i> Franklin Covey — 7 Habits</div>
+                            <div class="cert-item"><i class="fas fa-certificate"></i> AMCAT — Data Processing Specialist</div>
+                        </div>
+                        <h3 class="sub-title" style="margin-top:24px">Education</h3>
+                        <div class="cert-list">
+                            <div class="cert-item"><i class="fas fa-graduation-cap"></i> B.Tech — ECE, JECRC Jaipur (77%) — 2013–2017</div>
+                            <div class="cert-item"><i class="fas fa-school"></i> 12th — Saint Soldier, Jaipur (87%) — 2013</div>
+                            <div class="cert-item"><i class="fas fa-school"></i> 10th — Saint Soldier, Jaipur (9.4 CGPA) — 2011</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials Section -->
-    <section class="section" id="testimonials">
-        <div class="container">
-            <h2 class="section-title">What People Say</h2>
-            <div class="carousel-wrapper">
-                <button class="carousel-btn carousel-prev" id="prevBtn" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
-                <div class="carousel-stage" id="carouselStage">
-                    <div class="carousel-card active" data-index="0">
-                        <div class="carousel-quote-icon"><i class="fas fa-quote-left"></i></div>
-                        <blockquote>"He demonstrated a genuine passion for delivering value and consistently raising the bar. He solved complex business problems leveraging RPA, AWS technologies, saving our Finance teams thousands of hours. I recommend him without reservation."</blockquote>
-                        <div class="carousel-author"><strong>Ricardo Alvarado, PMP</strong><span>Business Program Manager, Microsoft</span></div>
+    <!-- ==================== SLIDE 4: AWARDS & SPEAKING ==================== -->
+    <section class="slide" data-slide="3">
+        <div class="slide-inner">
+            <h2 class="slide-title"><i class="fas fa-trophy"></i> Awards &amp; Speaking</h2>
+            <div class="scroll-area">
+                <div class="two-col">
+                    <div>
+                        <h3 class="sub-title">Awards &amp; Recognition</h3>
+                        <div class="awards-compact">
+                            <div class="award-row"><i class="fas fa-trophy"></i><div><strong>Blue Prism MVP</strong><span>5x — 2021, 2022, 2023, 2024, 2025</span></div></div>
+                            <div class="award-row"><i class="fas fa-star"></i><div><strong>Blue Prism MVP of the Year</strong><span>2022 — Top MVP globally</span></div></div>
+                            <div class="award-row"><i class="fas fa-award"></i><div><strong>Developer of the Year Finalist</strong><span>Blue Prism — Finalist</span></div></div>
+                            <div class="award-row"><i class="fas fa-medal"></i><div><strong>UiPath Community Award</strong><span>Las Vegas — BOT for Visually Impaired</span></div></div>
+                            <div class="award-row"><i class="fas fa-bolt"></i><div><strong>Ericsson Impact Award</strong><span>2018 — Saving ~12 FTE headcount</span></div></div>
+                            <div class="award-row"><i class="fas fa-code"></i><div><strong>2x UiPath Hackathon Winner</strong><span>2020 — Accessibility automation</span></div></div>
+                            <div class="award-row"><i class="fas fa-rocket"></i><div><strong>Automation &amp; Power Award</strong><span>Ericsson — Automated the "impossible"</span></div></div>
+                        </div>
                     </div>
-                    <div class="carousel-card" data-index="1">
-                        <div class="carousel-quote-icon"><i class="fas fa-quote-left"></i></div>
-                        <blockquote>"I can wholeheartedly recommend Vipul as not only incredibly talented Engineer, but also as amazing Human being. His drive for innovation is paralleled only by broad knowledge of technology he works with."</blockquote>
-                        <div class="carousel-author"><strong>Daniel Dubravec</strong><span>Visualization Engineer, Takeda</span></div>
+                    <div>
+                        <h3 class="sub-title">Judging</h3>
+                        <ul class="compact-list">
+                            <li>Blue Prism Customer Award Judge — 2021–2025</li>
+                            <li>Smart India Hackathon Judge — 2020</li>
+                            <li>Cybiant Asia Automation Days — 2021, 2022</li>
+                            <li><a href="https://aijourn.com/judges/" target="_blank">AI Journal Global Excellence Awards</a></li>
+                            <li>Botathon Judge — 2020, 2022</li>
+                            <li>VITMAS (VIT Vellore) — 2022</li>
+                            <li>NIT Durgapur — 2023</li>
+                            <li><a href="https://lnkd.in/gKbgYGs" target="_blank">RPA Riders Eduskills</a></li>
+                        </ul>
+                        <h3 class="sub-title" style="margin-top:20px">Speaking</h3>
+                        <ul class="compact-list">
+                            <li><a href="https://www.youtube.com/watch?v=3Z2b3CCg9Sk" target="_blank">Cybiant — Professional Speaker</a></li>
+                            <li><a href="https://lnkd.in/g74xZzqQ" target="_blank">Automation Days Asia — Malaysia 2021</a></li>
+                            <li><a href="https://resources.valuemomentum.com/tech-meetup-by-valuemomentum-jan-28-2021-1-0-0" target="_blank">ValueMomentum</a></li>
+                            <li>Global Microsoft Power Platform Bootcamp — 2022</li>
+                            <li><a href="https://www.linkedin.com/posts/rtbi-jecrc_tedp2-phase3-evolution-activity-6821334388874215424--YSe" target="_blank">RTBI JECRC</a></li>
+                            <li><a href="https://embed.sounder.fm/play/309273" target="_blank">Blue Prism Podcast</a></li>
+                            <li>Upflairs &amp; HRIT Group — Speaker</li>
+                        </ul>
                     </div>
-                    <div class="carousel-card" data-index="2">
-                        <div class="carousel-quote-icon"><i class="fas fa-quote-left"></i></div>
-                        <blockquote>"Vipul has demonstrated unwavering dedication, passion, and creativity. We genuinely consider Vipul an extended member of our team. His technical knowledge and thought-leadership continue to enrich our Community."</blockquote>
-                        <div class="carousel-author"><strong>Charlotte Kennett</strong><span>Director of Product Marketing, SS&amp;C Blue Prism</span></div>
-                    </div>
-                    <div class="carousel-card" data-index="3">
-                        <div class="carousel-quote-icon"><i class="fas fa-quote-left"></i></div>
-                        <blockquote>"Vipul is a highly skilled architect specialized in Intelligent Automation. He is customer/business focused, a good communicator and a driven person who thrives in innovative environments."</blockquote>
-                        <div class="carousel-author"><strong>Alexander H&#252;bel</strong><span>COO, DigitalTolk</span></div>
-                    </div>
-                    <div class="carousel-card" data-index="4">
-                        <div class="carousel-quote-icon"><i class="fas fa-quote-left"></i></div>
-                        <blockquote>"Every now and then, you come across a person who makes you think 'how do they do it?!'. His unending energy and enthusiasm is infectious, his creativity is unstoppable and his relentless focus on quality is second to none."</blockquote>
-                        <div class="carousel-author"><strong>Michael Shillingford</strong><span>Sr. Community Strategy Manager, SS&amp;C Blue Prism</span></div>
-                    </div>
-                    <div class="carousel-card" data-index="5">
-                        <div class="carousel-quote-icon"><i class="fas fa-quote-left"></i></div>
-                        <blockquote>"Vipul is not your typical techie, he packs a great combination of functional and technical flavours. He can be the driving force that inspires everyone else to do better."</blockquote>
-                        <div class="carousel-author"><strong>Ravi Joshi</strong><span>Director | Head of Engineering and AI, Citi</span></div>
-                    </div>
-                    <div class="carousel-card" data-index="6">
-                        <div class="carousel-quote-icon"><i class="fas fa-quote-left"></i></div>
-                        <blockquote>"Vipul brought a tremendous amount of enthusiasm to the automation team. His drive and technical depth translated into delivery of flagship projects. He will be an asset to any team he joins."</blockquote>
-                        <div class="carousel-author"><strong>Duncan Berry</strong><span>Head of Change, QBE Insurance</span></div>
-                    </div>
-                    <div class="carousel-card" data-index="7">
-                        <div class="carousel-quote-icon"><i class="fas fa-quote-left"></i></div>
-                        <blockquote>"Vipul is one of the most positive and skilled people I had the pleasure to work with. He has a unique ability to find solutions to problems and helps you reach your full potential. The key person every winning team should have."</blockquote>
-                        <div class="carousel-author"><strong>Ermir Hasanbelliu</strong><span>Program Manager, Amazon</span></div>
-                    </div>
-                    <div class="carousel-card" data-index="8">
-                        <div class="carousel-quote-icon"><i class="fas fa-quote-left"></i></div>
-                        <blockquote>"Vipul is a passionate technologist, open to sharing his time and knowledge. He adapted his conversations to different audiences while keeping the same powerful message. He gives honest answers without asking anything in return."</blockquote>
-                        <div class="carousel-author"><strong>Eric Nguyen</strong><span>Industry Advisor (AI x Cyber Security), University of Canberra</span></div>
-                    </div>
-                    <div class="carousel-card" data-index="9">
-                        <div class="carousel-quote-icon"><i class="fas fa-quote-left"></i></div>
-                        <blockquote>"Vipul has an abundance of enthusiasm and passion. His exceptional work ethic and technical understanding saw him drive forward important initiatives. His work continues to have an impact months after leaving."</blockquote>
-                        <div class="carousel-author"><strong>Markus Hall</strong><span>AI Strategy Lead, Fidelity International</span></div>
-                    </div>
-                    <div class="carousel-card" data-index="10">
-                        <div class="carousel-quote-icon"><i class="fas fa-quote-left"></i></div>
-                        <blockquote>"Vipul is an exceptional developer. He brings varied breadths and depths of technical know-how while constantly innovating. He is agile and always looking to re-invent and challenge existing norms."</blockquote>
-                        <div class="carousel-author"><strong>Ayush Tripathi</strong><span>Sr. IA Solution Architect, Fidelity International</span></div>
-                    </div>
-                    <div class="carousel-card" data-index="11">
-                        <div class="carousel-quote-icon"><i class="fas fa-quote-left"></i></div>
-                        <blockquote>"I could see Vipul as a trusted partner in Solution design. His low code automation tool understanding is beyond match. The energy and passion he brings while working on any problem is truly inspiring."</blockquote>
-                        <div class="carousel-author"><strong>Manish Dewan</strong><span>Senior Vice President, NatWest Group</span></div>
-                    </div>
-                    <div class="carousel-card" data-index="12">
-                        <div class="carousel-quote-icon"><i class="fas fa-quote-left"></i></div>
-                        <blockquote>"His Appian skills are unparalleled in the industry. His ability to quickly understand the problem statement and execute its solution to perfection makes him an asset. A problem assigned to Vipul is already half solved."</blockquote>
-                        <div class="carousel-author"><strong>Aditya Jairath</strong><span>Sr. Manager, Fidelity International</span></div>
-                    </div>
-                    <div class="carousel-card" data-index="13">
-                        <div class="carousel-quote-icon"><i class="fas fa-quote-left"></i></div>
-                        <blockquote>"I rarely come across real talents who stand out like Vipul. His ability to handle multiple automation scopes made a dramatic increase in productivity. No matter how tense the environment, Vipul made sure everyone left with a smile."</blockquote>
-                        <div class="carousel-author"><strong>Vinay Gangwar</strong><span>Program Manager, Rakuten Symphony</span></div>
-                    </div>
-                    <div class="carousel-card" data-index="14">
-                        <div class="carousel-quote-icon"><i class="fas fa-quote-left"></i></div>
-                        <blockquote>"Vipul showed excellent technical knowledge, and could rapidly understand business requirements and develop high quality automation solutions."</blockquote>
-                        <div class="carousel-author"><strong>David Hunter</strong><span>Head of AI and Automation, Sweco</span></div>
-                    </div>
-                </div>
-                <button class="carousel-btn carousel-next" id="nextBtn" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
-            </div>
-            <div class="carousel-dots" id="carouselDots"></div>
-            <div class="carousel-counter" id="carouselCounter">1 / 15</div>
-        </div>
-    </section>
-
-    <!-- Featured Project Section -->
-    <section class="section section-alt" id="projects">
-        <div class="container">
-            <h2 class="section-title">Featured Project</h2>
-            <div class="project-card">
-                <div class="project-icon"><i class="fas fa-eye"></i></div>
-                <div class="project-info">
-                    <h3>Visual Assistant for the Blind</h3>
-                    <p>An award-winning solution using Google Vision to perform OCR on images in emails, providing context and speech output so visually impaired professionals can make sense of visual-based emails. Won the UiPath Hackathon and was felicitated at Las Vegas.</p>
-                    <a href="https://connect.uipath.com/community/project/visual-assitant-for-the-blind" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i> View Project</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Articles Section -->
-    <section class="section" id="articles">
-        <div class="container">
-            <h2 class="section-title">Published Articles</h2>
-            <div class="articles-grid">
-                <a href="https://www.linkedin.com/pulse/follow-your-heart-navigating-corporate-world-vipul-tiwari/" target="_blank" class="article-card"><i class="fas fa-newspaper"></i><span>Follow Your Heart — Navigating the Corporate World</span></a>
-                <a href="https://www.linkedin.com/pulse/youngest-architect-vipul-tiwari/" target="_blank" class="article-card"><i class="fas fa-newspaper"></i><span>The Youngest Architect</span></a>
-                <a href="https://www.linkedin.com/pulse/sih-vision-atmanirbharbharat-vipul-tiwari/" target="_blank" class="article-card"><i class="fas fa-newspaper"></i><span>SIH Vision — AtmaNirbhar Bharat</span></a>
-                <a href="https://www.linkedin.com/pulse/hackathon-botathon-vipul-tiwari/" target="_blank" class="article-card"><i class="fas fa-newspaper"></i><span>Hackathon Botathon</span></a>
-                <a href="https://www.linkedin.com/pulse/switching-sides-table-vipul-tiwari/" target="_blank" class="article-card"><i class="fas fa-newspaper"></i><span>Switching Sides of the Table</span></a>
-                <a href="https://www.linkedin.com/pulse/transformation-journey-vipul-tiwari/" target="_blank" class="article-card"><i class="fas fa-newspaper"></i><span>The Transformation Journey</span></a>
-                <a href="https://www.uipath.com/community/rpa-community-blog/rpa-developer-recaps-power-up-automation-hackathon-2019" target="_blank" class="article-card"><i class="fas fa-newspaper"></i><span>24 Hours of Innovation — UiPath Hackathon</span></a>
-                <a href="https://community.blueprism.com/blogs/vipul-tiwari1/2020/09/10/taking-on-the-blueprism-way" target="_blank" class="article-card"><i class="fas fa-newspaper"></i><span>Taking on the Blue Prism Way</span></a>
-                <a href="https://community.blueprism.com/blogs/vipul-tiwari1/2021/01/26/the-journey-of-an-mvp" target="_blank" class="article-card"><i class="fas fa-newspaper"></i><span>The Journey of an MVP</span></a>
-                <a href="https://www.cybiant.com/knowledge/empowering-innovation-the-journey-and-multi-faceted-benefits-of-citizen-developer-program/" target="_blank" class="article-card"><i class="fas fa-newspaper"></i><span>Empowering Innovation — Citizen Developer Program</span></a>
-                <a href="https://community.blueprism.com/blogs/vipul-tiwari1/2024/03/12/beyond-recognition-the-essence-of-being-a-four-tim" target="_blank" class="article-card"><i class="fas fa-newspaper"></i><span>Beyond Recognition — Being a Four-Time MVP</span></a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Education Section -->
-    <section class="section section-alt" id="education">
-        <div class="container">
-            <h2 class="section-title">Education</h2>
-            <div class="education-grid">
-                <div class="edu-card">
-                    <div class="edu-year">2013 — 2017</div>
-                    <h3>B.Tech — Electronics &amp; Communication Engineering</h3>
-                    <p class="edu-institute">JECRC, Jaipur</p>
-                    <p class="edu-score">77%</p>
-                </div>
-                <div class="edu-card">
-                    <div class="edu-year">2012 — 2013</div>
-                    <h3>12th Standard</h3>
-                    <p class="edu-institute">Saint Soldier Public School, Jaipur</p>
-                    <p class="edu-score">87%</p>
-                </div>
-                <div class="edu-card">
-                    <div class="edu-year">2010 — 2011</div>
-                    <h3>10th Standard</h3>
-                    <p class="edu-institute">Saint Soldier Public School, Jaipur</p>
-                    <p class="edu-score">9.4 CGPA</p>
+    <!-- ==================== SLIDE 5: TESTIMONIALS ==================== -->
+    <section class="slide" data-slide="4">
+        <div class="slide-inner">
+            <h2 class="slide-title"><i class="fas fa-comments"></i> What People Say</h2>
+            <div class="scroll-area">
+                <div class="testi-slider-wrap">
+                    <button class="testi-arrow testi-prev" id="testiPrev"><i class="fas fa-chevron-left"></i></button>
+                    <div class="testi-viewport" id="testiViewport">
+                        <div class="testi-track" id="testiTrack">
+                            <div class="testi-card"><div class="testi-text">"He demonstrated a genuine passion for delivering value and consistently raising the bar. He solved complex business problems leveraging RPA, AWS technologies, saving our Finance teams thousands of hours. I recommend him without reservation."</div><div class="testi-author"><strong>Ricardo Alvarado, PMP</strong><span>Business Program Manager, Microsoft</span></div></div>
+                            <div class="testi-card"><div class="testi-text">"I can wholeheartedly recommend Vipul as not only incredibly talented Engineer, but also as amazing Human being. His drive for innovation is paralleled only by broad knowledge of technology he works with."</div><div class="testi-author"><strong>Daniel Dubravec</strong><span>Visualization Engineer, Takeda</span></div></div>
+                            <div class="testi-card"><div class="testi-text">"Vipul has demonstrated unwavering dedication, passion, and creativity. We genuinely consider Vipul an extended member of our team. His technical knowledge and thought-leadership continue to enrich our Community."</div><div class="testi-author"><strong>Charlotte Kennett</strong><span>Director of Product Marketing, SS&amp;C Blue Prism</span></div></div>
+                            <div class="testi-card"><div class="testi-text">"Vipul is a highly skilled architect specialized in Intelligent Automation. He is customer/business focused, a good communicator and a driven person who thrives in innovative environments."</div><div class="testi-author"><strong>Alexander Hübel</strong><span>COO, DigitalTolk</span></div></div>
+                            <div class="testi-card"><div class="testi-text">"Every now and then, you come across a person who makes you think 'how do they do it?!'. His unending energy and enthusiasm is infectious, his creativity is unstoppable and his relentless focus on quality is second to none."</div><div class="testi-author"><strong>Michael Shillingford</strong><span>Sr. Community Strategy Manager, SS&amp;C Blue Prism</span></div></div>
+                            <div class="testi-card"><div class="testi-text">"Vipul is not your typical techie, he packs a great combination of functional and technical flavours. He can be the driving force that inspires everyone else to do better."</div><div class="testi-author"><strong>Ravi Joshi</strong><span>Director | Head of Engineering and AI, Citi</span></div></div>
+                            <div class="testi-card"><div class="testi-text">"Vipul brought a tremendous amount of enthusiasm to the automation team. His drive and technical depth translated into delivery of flagship projects. He will be an asset to any team he joins."</div><div class="testi-author"><strong>Duncan Berry</strong><span>Head of Change, QBE Insurance</span></div></div>
+                            <div class="testi-card"><div class="testi-text">"Vipul is one of the most positive and skilled people I had the pleasure to work with. He has a unique ability to find solutions to problems and helps you reach your full potential. The key person every winning team should have."</div><div class="testi-author"><strong>Ermir Hasanbelliu</strong><span>Program Manager, Amazon</span></div></div>
+                            <div class="testi-card"><div class="testi-text">"Vipul is a passionate technologist, open to sharing his time and knowledge. He adapted his conversations to different audiences while keeping the same powerful message. He gives honest answers without asking anything in return."</div><div class="testi-author"><strong>Eric Nguyen</strong><span>Industry Advisor, University of Canberra</span></div></div>
+                            <div class="testi-card"><div class="testi-text">"Vipul has an abundance of enthusiasm and passion. His exceptional work ethic and technical understanding saw him drive forward important initiatives. His work continues to have an impact months after leaving."</div><div class="testi-author"><strong>Markus Hall</strong><span>AI Strategy Lead, Fidelity International</span></div></div>
+                            <div class="testi-card"><div class="testi-text">"Vipul is an exceptional developer. He brings varied breadths and depths of technical know-how while constantly innovating. He is agile and always looking to re-invent and challenge existing norms."</div><div class="testi-author"><strong>Ayush Tripathi</strong><span>Sr. IA Solution Architect, Fidelity International</span></div></div>
+                            <div class="testi-card"><div class="testi-text">"I could see Vipul as a trusted partner in Solution design. His low code automation tool understanding is beyond match. The energy and passion he brings while working on any problem is truly inspiring."</div><div class="testi-author"><strong>Manish Dewan</strong><span>Senior Vice President, NatWest Group</span></div></div>
+                            <div class="testi-card"><div class="testi-text">"His Appian skills are unparalleled in the industry. His ability to quickly understand the problem statement and execute its solution to perfection makes him an asset. A problem assigned to Vipul is already half solved."</div><div class="testi-author"><strong>Aditya Jairath</strong><span>Sr. Manager, Fidelity International</span></div></div>
+                            <div class="testi-card"><div class="testi-text">"I rarely come across real talents who stand out like Vipul. His ability to handle multiple automation scopes made a dramatic increase in productivity. No matter how tense the environment, Vipul made sure everyone left with a smile."</div><div class="testi-author"><strong>Vinay Gangwar</strong><span>Program Manager, Rakuten Symphony</span></div></div>
+                            <div class="testi-card"><div class="testi-text">"Vipul showed excellent technical knowledge, and could rapidly understand business requirements and develop high quality automation solutions."</div><div class="testi-author"><strong>David Hunter</strong><span>Head of AI and Automation, Sweco</span></div></div>
+                        </div>
+                    </div>
+                    <button class="testi-arrow testi-next" id="testiNext"><i class="fas fa-chevron-right"></i></button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Certifications Section -->
-    <section class="section section-alt" id="certifications">
-        <div class="container">
-            <h2 class="section-title">Certifications</h2>
-            <div class="cert-grid">
-                <div class="cert-badge">
-                    <i class="fab fa-aws"></i>
-                    <span>AWS Certified Solutions Architect — Associate</span>
+    <!-- ==================== SLIDE 6: PROJECT & ARTICLES ==================== -->
+    <section class="slide" data-slide="5">
+        <div class="slide-inner">
+            <h2 class="slide-title"><i class="fas fa-pen-fancy"></i> Project &amp; Articles</h2>
+            <div class="scroll-area">
+                <h3 class="sub-title">Featured Project</h3>
+                <div class="project-box">
+                    <div class="project-icon"><i class="fas fa-eye"></i></div>
+                    <div>
+                        <strong>Visual Assistant for the Blind</strong>
+                        <p>Award-winning solution using Google Vision for OCR on email images, providing context and speech output for visually impaired professionals. Won UiPath Hackathon, felicitated at Las Vegas.</p>
+                        <a href="https://connect.uipath.com/community/project/visual-assitant-for-the-blind" target="_blank"><i class="fas fa-external-link-alt"></i> View Project</a>
+                    </div>
                 </div>
-                <div class="cert-badge">
-                    <i class="fas fa-certificate"></i>
-                    <span>Blue Prism Professional Developer (APD01)</span>
+                <h3 class="sub-title" style="margin-top:28px">Published Articles</h3>
+                <div class="articles-compact">
+                    <a href="https://www.linkedin.com/pulse/follow-your-heart-navigating-corporate-world-vipul-tiwari/" target="_blank"><i class="fas fa-newspaper"></i> Follow Your Heart — Navigating the Corporate World</a>
+                    <a href="https://www.linkedin.com/pulse/youngest-architect-vipul-tiwari/" target="_blank"><i class="fas fa-newspaper"></i> The Youngest Architect</a>
+                    <a href="https://www.linkedin.com/pulse/sih-vision-atmanirbharbharat-vipul-tiwari/" target="_blank"><i class="fas fa-newspaper"></i> SIH Vision — AtmaNirbhar Bharat</a>
+                    <a href="https://www.linkedin.com/pulse/hackathon-botathon-vipul-tiwari/" target="_blank"><i class="fas fa-newspaper"></i> Hackathon Botathon</a>
+                    <a href="https://www.linkedin.com/pulse/switching-sides-table-vipul-tiwari/" target="_blank"><i class="fas fa-newspaper"></i> Switching Sides of the Table</a>
+                    <a href="https://www.linkedin.com/pulse/transformation-journey-vipul-tiwari/" target="_blank"><i class="fas fa-newspaper"></i> The Transformation Journey</a>
+                    <a href="https://www.uipath.com/community/rpa-community-blog/rpa-developer-recaps-power-up-automation-hackathon-2019" target="_blank"><i class="fas fa-newspaper"></i> 24 Hours of Innovation — UiPath Hackathon</a>
+                    <a href="https://community.blueprism.com/blogs/vipul-tiwari1/2020/09/10/taking-on-the-blueprism-way" target="_blank"><i class="fas fa-newspaper"></i> Taking on the Blue Prism Way</a>
+                    <a href="https://community.blueprism.com/blogs/vipul-tiwari1/2021/01/26/the-journey-of-an-mvp" target="_blank"><i class="fas fa-newspaper"></i> The Journey of an MVP</a>
+                    <a href="https://www.cybiant.com/knowledge/empowering-innovation-the-journey-and-multi-faceted-benefits-of-citizen-developer-program/" target="_blank"><i class="fas fa-newspaper"></i> Empowering Innovation — Citizen Developer Program</a>
+                    <a href="https://community.blueprism.com/blogs/vipul-tiwari1/2024/03/12/beyond-recognition-the-essence-of-being-a-four-tim" target="_blank"><i class="fas fa-newspaper"></i> Beyond Recognition — Being a Four-Time MVP</a>
                 </div>
-                <div class="cert-badge">
-                    <i class="fas fa-certificate"></i>
-                    <span>Blue Prism Certified Developer</span>
-                </div>
-                <div class="cert-badge">
-                    <i class="fas fa-certificate"></i>
-                    <span>UiPath Advanced Developer</span>
-                </div>
-                <div class="cert-badge">
-                    <i class="fas fa-certificate"></i>
-                    <span>Appian Level 1 Certified</span>
-                </div>
-                <div class="cert-badge">
-                    <i class="fas fa-certificate"></i>
-                    <span>CCNA Routing &amp; Switching #13265788</span>
-                </div>
-                <div class="cert-badge">
-                    <i class="fas fa-certificate"></i>
-                    <span>Ericsson Certified Technology — IP #ECP122808</span>
-                </div>
-                <div class="cert-badge">
-                    <i class="fas fa-certificate"></i>
-                    <span>Service Automation Framework Ambassador</span>
-                </div>
-                <div class="cert-badge">
-                    <i class="fas fa-certificate"></i>
-                    <span>Franklin Covey — 7 Habits of Highly Effective People</span>
-                </div>
-                <div class="cert-badge">
-                    <i class="fas fa-certificate"></i>
-                    <span>AMCAT — Data Processing Specialist</span>
-                </div>
+                <h3 class="sub-title" style="margin-top:28px">Community Leadership</h3>
+                <ul class="compact-list">
+                    <li>Blue Prism Gurgaon, Delhi, Noida User Group Lead — 2020, 2021</li>
+                    <li>Service Automation Framework Ambassador</li>
+                    <li><a href="https://www.linkedin.com/posts/vipul-tiwari-7277a2146_microsoft-machinelearning-ai-activity-6794173451595784192-wOch" target="_blank">Mentor for Microsoft x Fidelity Hackathon</a></li>
+                    <li>UiPath cross-BU collaboration community driver at Amazon</li>
+                    <li>Managing Citizen Development Program across Amazon FinOps</li>
+                </ul>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section class="section" id="contact">
-        <div class="container">
-            <h2 class="section-title">Get in Touch</h2>
-            <div class="contact-grid">
-                <a href="mailto:[email]" class="contact-card">
-                    <i class="fas fa-envelope"></i>
-                    <span>Email Me</span>
-                </a>
-                <a href="https://www.linkedin.com/in/vipul-tiwari-7277a2146/" target="_blank" class="contact-card">
-                    <i class="fab fa-linkedin"></i>
-                    <span>LinkedIn</span>
-                </a>
-                <a href="https://github.com/vipult1994" target="_blank" class="contact-card">
-                    <i class="fab fa-github"></i>
-                    <span>GitHub</span>
-                </a>
-                <a href="Vipul Tiwari_architect.pdf" download class="contact-card">
-                    <i class="fas fa-download"></i>
-                    <span>Download Resume</span>
-                </a>
-                <a href="cover-letter.html" target="_blank" class="contact-card">
-                    <i class="fas fa-file-alt"></i>
-                    <span>Cover Letter</span>
-                </a>
+    <!-- ==================== SLIDE 7: CONTACT ==================== -->
+    <section class="slide" data-slide="6">
+        <div class="slide-inner hero-slide">
+            <div class="hero-glow"></div>
+            <img src="picture.jpeg" alt="Vipul Tiwari" class="hero-avatar small">
+            <h2 class="slide-title" style="margin-top:16px">Let's Connect</h2>
+            <p class="contact-tagline">Open to collaboration, speaking engagements, and new opportunities.</p>
+            <div class="contact-links">
+                <a href="mailto:[email]" class="contact-btn"><i class="fas fa-envelope"></i> Email Me</a>
+                <a href="https://www.linkedin.com/in/vipul-tiwari-7277a2146/" target="_blank" class="contact-btn"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="https://github.com/vipult1994" target="_blank" class="contact-btn"><i class="fab fa-github"></i> GitHub</a>
+                <a href="Vipul Tiwari_architect.pdf" download class="contact-btn"><i class="fas fa-download"></i> Download Resume</a>
+                <a href="cover-letter.html" target="_blank" class="contact-btn"><i class="fas fa-file-alt"></i> Cover Letter</a>
             </div>
+            <p class="footer-text">&copy; 2025 Vipul Tiwari. Built with passion.</p>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 Vipul Tiwari. Built with passion.</p>
-        </div>
-    </footer>
-
-    <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
     <script src="script.js"></script>
 </body>
 </html>
