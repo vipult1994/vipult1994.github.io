@@ -1,163 +1,145 @@
-document.addEventListener('DOMContentLoaded', function() {
+var cur = 1, total = 7;
+var landing = document.getElementById('landing');
+var main = document.getElementById('resumeMain');
+var nav = document.getElementById('topNav');
+var pnav = document.getElementById('pageNav');
+var prevB = document.getElementById('prevBtn');
+var nextB = document.getElementById('nextBtn');
+var pgNum = document.getElementById('pgNum');
 
-    // ===== Theme Toggle =====
-    var themeToggle = document.getElementById('themeToggle');
-    var themeIcon = document.getElementById('themeIcon');
-    var savedTheme = localStorage.getItem('theme') || 'dark';
-    function setTheme(t) {
-        document.documentElement.setAttribute('data-theme', t);
-        if (themeIcon) themeIcon.className = t === 'light' ? 'fas fa-sun' : 'fas fa-moon';
-        localStorage.setItem('theme', t);
+// Landing click
+document.getElementById('deskWrap').addEventListener('click', function() {
+    landing.classList.add('fade-out');
+    setTimeout(function() {
+        landing.style.display = 'none';
+        document.body.style.overflow = 'auto';
+        main.classList.remove('hidden');
+        main.classList.add('show');
+        setTimeout(function() {
+            nav.classList.add('show');
+            pnav.classList.add('show');
+            revealPage();
+        }, 300);
+    }, 900);
+});
+
+function revealPage() {
+    var active = document.querySelector('.page.active');
+    if (!active) return;
+    var els = active.querySelectorAll('.reveal');
+    for (var i = 0; i < els.length; i++) {
+        (function(el, idx) {
+            setTimeout(function() { el.classList.add('show'); }, 200 + idx * 300);
+        })(els[i], i);
     }
-    setTheme(savedTheme);
-    if (themeToggle) themeToggle.addEventListener('click', function() {
-        setTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+    // Animate skill bars on page 3
+    if (cur === 3) {
+        setTimeout(function() {
+            var fills = document.querySelectorAll('.sp-fill[data-w]');
+            for (var j = 0; j < fills.length; j++) fills[j].style.width = fills[j].getAttribute('data-w') + '%';
+        }, 600);
+    }
+}
+
+function goTo(n) {
+    if (n < 1 || n > total || n === cur) return;
+    var old = document.querySelector('.page.active');
+    if (old) {
+        old.style.animation = 'slideOut .35s ease forwards';
+        setTimeout(function() {
+            old.classList.remove('active'); old.style.display = 'none'; old.style.animation = '';
+            showP(n);
+        }, 350);
+    } else showP(n);
+}
+
+function showP(n) {
+    cur = n;
+    var p = document.querySelectorAll('.page')[n - 1];
+    p.style.display = 'block'; p.classList.add('active');
+    p.style.animation = 'slideIn .5s ease forwards';
+    var els = p.querySelectorAll('.reveal');
+    for (var i = 0; i < els.length; i++) {
+        (function(el, idx) {
+            el.classList.remove('show');
+            setTimeout(function() { el.classList.add('show'); }, 150 + idx * 200);
+        })(els[i], i);
+    }
+    updCtrl(); updNav(n);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    // Skill bars
+    if (n === 3) {
+        setTimeout(function() {
+            var fills = document.querySelectorAll('.sp-fill[data-w]');
+            for (var j = 0; j < fills.length; j++) fills[j].style.width = fills[j].getAttribute('data-w') + '%';
+        }, 600);
+    }
+}
+
+function updCtrl() {
+    pgNum.textContent = cur + ' / ' + total;
+    prevB.disabled = cur === 1;
+    nextB.disabled = cur === total;
+}
+
+function updNav(n) {
+    var links = document.querySelectorAll('.nav-link');
+    for (var i = 0; i < links.length; i++) links[i].classList.remove('active');
+    for (var i = 0; i < links.length; i++) {
+        if (parseInt(links[i].getAttribute('data-page')) === n) { links[i].classList.add('active'); break; }
+    }
+}
+
+prevB.addEventListener('click', function() { goTo(cur - 1); });
+nextB.addEventListener('click', function() { goTo(cur + 1); });
+
+// Nav links
+var navLinks = document.querySelectorAll('.nav-link');
+for (var i = 0; i < navLinks.length; i++) {
+    navLinks[i].addEventListener('click', function(e) {
+        e.preventDefault(); goTo(parseInt(this.getAttribute('data-page')));
     });
+}
 
-    // ===== Slide Navigation =====
-    var slides = document.querySelectorAll('.slide');
-    var counter = document.getElementById('slideCounter');
-    var dotsWrap = document.getElementById('pageDots');
-    var current = 0;
-    var total = slides.length;
-    var animating = false;
+// Keyboard
+document.addEventListener('keydown', function(e) {
+    if (landing.style.display !== 'none') return;
+    if (e.key === 'ArrowRight') goTo(cur + 1);
+    if (e.key === 'ArrowLeft') goTo(cur - 1);
+});
 
-    // Create dots
-    for (var d = 0; d < total; d++) {
-        var dot = document.createElement('button');
-        dot.className = 'page-dot' + (d === 0 ? ' active' : '');
-        dot.setAttribute('data-i', d);
-        dot.addEventListener('click', function() { goTo(parseInt(this.getAttribute('data-i'))); });
-        dotsWrap.appendChild(dot);
+// Toggle experience
+function toggle(head) {
+    var body = head.nextElementSibling;
+    var isOpen = body.classList.contains('open');
+    var page = head.closest('.page');
+    var allBodies = page.querySelectorAll('.tl-body.open');
+    for (var i = 0; i < allBodies.length; i++) {
+        allBodies[i].classList.remove('open');
+        allBodies[i].previousElementSibling.classList.remove('open');
     }
+    if (!isOpen) { body.classList.add('open'); head.classList.add('open'); }
+}
 
-    function goTo(idx) {
-        if (animating || idx === current || idx < 0 || idx >= total) return;
-        animating = true;
-        slides[current].classList.remove('active');
-        slides[current].classList.add('exit');
-        setTimeout(function() { slides[current - (current > idx ? 0 : (idx - current))]; }, 0);
-        var prev = current;
-        current = idx;
-        slides[current].classList.add('active');
-        counter.textContent = (current + 1) + ' / ' + total;
-        var dots = dotsWrap.querySelectorAll('.page-dot');
-        dots[prev].classList.remove('active');
-        dots[current].classList.add('active');
-        setTimeout(function() { slides[prev].classList.remove('exit'); animating = false; }, 500);
-        // Trigger skill bars on skills slide
-        if (current === 2) animateSkills();
+updCtrl();
+
+// Testimonials slider (2 cards)
+var tTrack = document.getElementById('tTrack');
+var tPrevB = document.getElementById('tPrev');
+var tNextB = document.getElementById('tNext');
+if (tTrack && tPrevB && tNextB) {
+    var tPos = 0, gap = 16;
+    function getVis() { return window.innerWidth <= 768 ? 1 : 2; }
+    function updT() {
+        var vis = getVis();
+        var maxP = Math.max(0, tTrack.children.length - vis);
+        if (tPos > maxP) tPos = maxP;
+        var vw = tTrack.parentElement.offsetWidth;
+        var cw = (vw - gap * (vis - 1)) / vis;
+        tTrack.style.transform = 'translateX(-' + (tPos * (cw + gap)) + 'px)';
     }
-
-    document.getElementById('slideNext').addEventListener('click', function() { goTo(current + 1 >= total ? 0 : current + 1); });
-    document.getElementById('slidePrev').addEventListener('click', function() { goTo(current - 1 < 0 ? total - 1 : current - 1); });
-
-    // Keyboard nav
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'ArrowRight' || e.key === 'ArrowDown') goTo(current + 1 >= total ? 0 : current + 1);
-        if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') goTo(current - 1 < 0 ? total - 1 : current - 1);
-    });
-
-    // ===== Typing Animation =====
-    var typingEl = document.getElementById('typingText');
-    if (typingEl) {
-        var phrases = [
-            'Sr. Solutions Architect — Agentic AI | FinOps COE',
-            'Blue Prism MVP x5 | UiPath Certified',
-            'Enterprise Automation Leader',
-            'Professional Speaker & Mentor',
-            'AWS | RPA | Python | AI'
-        ];
-        var pi = 0, ci = 0, del = false;
-        var cursor = document.createElement('span');
-        cursor.className = 'typing-cursor';
-        typingEl.appendChild(cursor);
-        function type() {
-            var p = phrases[pi];
-            if (!del) {
-                typingEl.textContent = p.substring(0, ci + 1);
-                typingEl.appendChild(cursor);
-                ci++;
-                if (ci === p.length) { del = true; setTimeout(type, 2000); return; }
-                setTimeout(type, 45 + Math.random() * 25);
-            } else {
-                typingEl.textContent = p.substring(0, ci - 1);
-                typingEl.appendChild(cursor);
-                ci--;
-                if (ci === 0) { del = false; pi = (pi + 1) % phrases.length; setTimeout(type, 400); return; }
-                setTimeout(type, 20);
-            }
-        }
-        type();
-    }
-
-    // ===== Skill Bars =====
-    var skillsDone = false;
-    function animateSkills() {
-        if (skillsDone) return;
-        document.querySelectorAll('.skill-fill').forEach(function(b) { b.style.width = b.getAttribute('data-level') + '%'; });
-        skillsDone = true;
-    }
-
-    // ===== Testimonials 2-Card Slider =====
-    var tTrack = document.getElementById('testiTrack');
-    var tPrev = document.getElementById('testiPrev');
-    var tNext = document.getElementById('testiNext');
-    if (tTrack && tPrev && tNext) {
-        var tCards = tTrack.querySelectorAll('.testi-card');
-        var tPos = 0;
-        var gap = 16;
-
-        function getVisible() { return window.innerWidth <= 768 ? 1 : 2; }
-
-        function updateTesti() {
-            var vis = getVisible();
-            var maxP = Math.max(0, tCards.length - vis);
-            if (tPos > maxP) tPos = maxP;
-            var vw = tTrack.parentElement.offsetWidth;
-            var cardW = (vw - gap * (vis - 1)) / vis;
-            tTrack.style.transform = 'translateX(-' + (tPos * (cardW + gap)) + 'px)';
-        }
-
-        tNext.addEventListener('click', function() {
-            var vis = getVisible();
-            var maxP = Math.max(0, tCards.length - vis);
-            tPos = tPos >= maxP ? 0 : tPos + 1;
-            updateTesti();
-        });
-        tPrev.addEventListener('click', function() {
-            var vis = getVisible();
-            var maxP = Math.max(0, tCards.length - vis);
-            tPos = tPos <= 0 ? maxP : tPos - 1;
-            updateTesti();
-        });
-
-        window.addEventListener('resize', updateTesti);
-        updateTesti();
-
-        // Auto-slide
-        var tAuto = setInterval(function() {
-            var vis = getVisible();
-            var maxP = Math.max(0, tCards.length - vis);
-            tPos = tPos >= maxP ? 0 : tPos + 1;
-            updateTesti();
-        }, 5000);
-        tNext.addEventListener('click', function() { clearInterval(tAuto); });
-        tPrev.addEventListener('click', function() { clearInterval(tAuto); });
-    }
-
-    // ===== Particles =====
-    var pc = document.getElementById('particles');
-    if (pc) {
-        for (var i = 0; i < 20; i++) {
-            var p = document.createElement('div');
-            var s = Math.random() * 3 + 1;
-            p.style.cssText = 'position:absolute;width:'+s+'px;height:'+s+'px;background:rgba(99,102,241,'+(Math.random()*0.3+0.1)+');border-radius:50%;left:'+(Math.random()*100)+'%;top:'+(Math.random()*100)+'%;animation:float '+(Math.random()*10+10)+'s ease-in-out infinite;animation-delay:-'+(Math.random()*10)+'s';
-            pc.appendChild(p);
-        }
-    }
-    var fs = document.createElement('style');
-    fs.textContent = '@keyframes float{0%,100%{transform:translate(0,0) scale(1);opacity:.5}25%{transform:translate(30px,-40px) scale(1.2);opacity:1}50%{transform:translate(-20px,-20px) scale(.8);opacity:.3}75%{transform:translate(-30px,15px) scale(1.1);opacity:.7}}';
-    document.head.appendChild(fs);
-
-}); // end DOMContentLoaded
+    tNextB.addEventListener('click', function() { var m = Math.max(0, tTrack.children.length - getVis()); tPos = tPos >= m ? 0 : tPos + 1; updT(); });
+    tPrevB.addEventListener('click', function() { var m = Math.max(0, tTrack.children.length - getVis()); tPos = tPos <= 0 ? m : tPos - 1; updT(); });
+    window.addEventListener('resize', updT);
+    updT();
+}
