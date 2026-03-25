@@ -122,24 +122,3 @@ function toggle(head) {
 }
 
 updCtrl();
-
-// Testimonials slider (2 cards)
-var tTrack = document.getElementById('tTrack');
-var tPrevB = document.getElementById('tPrev');
-var tNextB = document.getElementById('tNext');
-if (tTrack && tPrevB && tNextB) {
-    var tPos = 0, gap = 16;
-    function getVis() { return window.innerWidth <= 768 ? 1 : 2; }
-    function updT() {
-        var vis = getVis();
-        var maxP = Math.max(0, tTrack.children.length - vis);
-        if (tPos > maxP) tPos = maxP;
-        var vw = tTrack.parentElement.offsetWidth;
-        var cw = (vw - gap * (vis - 1)) / vis;
-        tTrack.style.transform = 'translateX(-' + (tPos * (cw + gap)) + 'px)';
-    }
-    tNextB.addEventListener('click', function() { var m = Math.max(0, tTrack.children.length - getVis()); tPos = tPos >= m ? 0 : tPos + 1; updT(); });
-    tPrevB.addEventListener('click', function() { var m = Math.max(0, tTrack.children.length - getVis()); tPos = tPos <= 0 ? m : tPos - 1; updT(); });
-    window.addEventListener('resize', updT);
-    updT();
-}

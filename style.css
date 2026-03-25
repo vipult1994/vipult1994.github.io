@@ -139,16 +139,16 @@ ul{list-style:none}
 .aw-row span{font-size:12px;color:#95a5a6}
 
 /* TESTIMONIALS */
-.testi-wrap{display:flex;align-items:center;gap:12px}
-.testi-viewport{flex:1;overflow:hidden}
-.testi-track{display:flex;gap:16px;transition:transform .4s ease}
-.testi-card{min-width:calc(50% - 8px);flex-shrink:0;background:#fff;border-radius:10px;padding:28px;box-shadow:0 3px 16px rgba(0,0,0,0.05);display:flex;flex-direction:column;gap:16px}
-.testi-card p{font-size:13px;color:#555;line-height:1.8;font-style:italic;flex:1}
+.testi-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-height:calc(100vh - 200px);overflow-y:auto;padding-right:8px}
+.testi-grid::-webkit-scrollbar{width:4px}
+.testi-grid::-webkit-scrollbar-thumb{background:#ccc;border-radius:4px}
+.testi-card{background:#fff;border-radius:10px;padding:24px 28px;box-shadow:0 3px 16px rgba(0,0,0,0.05);display:flex;flex-direction:column;gap:12px;border-left:4px solid #2c3e50;transition:all .3s}
+.testi-card:hover{box-shadow:0 6px 28px rgba(0,0,0,0.09);transform:translateY(-2px)}
+.tc-quote{font-size:28px;color:#e74c3c;line-height:1;opacity:0.6}
+.testi-card p{font-size:13px;color:#555;line-height:1.8;font-style:italic;flex:1;margin:0}
 .tc-author{border-top:1px solid #f0f0f0;padding-top:12px}
 .tc-author strong{display:block;font-size:13px;color:#2c3e50}
 .tc-author span{font-size:11px;color:#95a5a6}
-.testi-arrow{width:36px;height:36px;border-radius:50%;border:1px solid #ddd;background:#fff;color:#2c3e50;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:14px;transition:all .3s;flex-shrink:0}
-.testi-arrow:hover{border-color:#2c3e50;background:#2c3e50;color:#fff}
 
 /* ARTICLES */
 .articles-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
@@ -172,7 +172,7 @@ ul{list-style:none}
     .nav-link{font-size:8px;letter-spacing:1px}
     .sp-grid{grid-template-columns:1fr}
     .skills-split{grid-template-columns:1fr}
-    .testi-card{min-width:100%}
+    .testi-grid{grid-template-columns:1fr}
     .articles-grid{grid-template-columns:1fr}
     .hero-tags-row{margin-top:16px}
 }
